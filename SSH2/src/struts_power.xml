@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+                    <!--内部权限管理-->
+<struts>
+    <package name="userorder" extends="struts-default">
+        <action name="user_list" class="action.inner.sysordermanager.OrderManager" method="List">
+        </action>
+        <action name="user_order" class="action.inner.sysordermanager.OrderManager" method="Order">
+        </action>
+        <action name="order_list" class="action.inner.sysordermanager.OrderManager" method="OrderList">
+        </action>
+        <action name="order_one" class="action.inner.sysordermanager.OrderManager" method="OneOrder">
+        </action>
+        <action name="order_add" class="action.inner.sysordermanager.OrderManager" method="AddOrder">
+        </action>
+        <action name="order_del" class="action.inner.sysordermanager.OrderManager" method="delOrder">
+        </action>
+    </package>
+
+    <package name="rolemanager" extends="struts-default">
+        <action name="list_role_class" class="action.inner.sysordermanager.RoleManager" method="ListRoleCalss">
+        </action>
+        <action name="class_roles" class="action.inner.sysordermanager.RoleManager" method="OneClassRoles">
+        </action>
+        <action name="add_class" class="action.inner.sysordermanager.RoleManager" method="AddRoleClass">
+        </action>
+        <action name="select_orders" class="action.inner.sysordermanager.RoleManager" method="SelectAllOrder">
+        </action>
+        <action name="class_order_change" class="action.inner.sysordermanager.RoleManager" method="SaveClassOrderChange">
+        </action>
+        <action name="del_class" class="action.inner.sysordermanager.RoleManager" method="DelRoleClass">
+        </action>
+        <action name="save_sys_role" class="action.inner.sysordermanager.RoleManager" method="SaveOneSystemRole">
+        </action>
+        <action name="move_role" class="action.inner.sysordermanager.RoleManager" method="MoveRoleToOtherClass">
+        </action>
+        <action name="del_role" class="action.inner.sysordermanager.RoleManager" method="DeleteRole">
+        </action>
+        <action name="select_role_orders" class="action.inner.sysordermanager.RoleManager" method="SelectRoleOrders">
+        </action>
+        <action name="role_order_change" class="action.inner.sysordermanager.RoleManager" method="SaveRoleOrderChange">
+        </action>
+    </package>
+
+    <package name="usermanager" extends="struts-default">
+        <action name="select_user" class="action.inner.sysordermanager.UserManager" method="SelectUserLevalOne">
+        </action>
+        <action name="user_info" class="action.inner.sysordermanager.UserManager" method="UserInfo">
+        </action>
+        <action name="del_user" class="action.inner.sysordermanager.UserManager" method="DeleteUser">
+        </action>
+        <action name="update_user" class="action.inner.sysordermanager.UserManager" method="UpdateUser">
+        </action>
+        <action name="user_order_list" class="action.inner.sysordermanager.UserManager" method="SelectUserOrders">
+        </action>
+        <action name="user_order_change" class="action.inner.sysordermanager.UserManager" method="UpdateUserOrderChange">
+        </action>
+    </package>
+</struts>

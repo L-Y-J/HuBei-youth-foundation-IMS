@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Oracle - orcl@localhost" uuid="f51ccb5b-9acf-41aa-9bc9-cc254fac7c7d">
+    <database-info product="Oracle" version="Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production&#xa;With the Partitioning, OLAP, Data Mining and Real Application Testing options" jdbc-version="11.2" driver-name="Oracle JDBC driver" driver-version="11.2.0.1.0">
+      <extra-name-characters>$#</extra-name-characters>
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
+    <schema name="SCOTT" catalog=""/>
+    <table name="BONUS" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ENAME" sqlType="VARCHAR2" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="JOB" sqlType="VARCHAR2" length="9" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SAL" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+      <column name="COMM" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="DEPT" schema="SCOTT" catalog="" type="TABLE">
+      <column name="DEPTNO" sqlType="NUMBER" length="2" precision="0" nullable="false" jdbcType="3"/>
+      <column name="DNAME" sqlType="VARCHAR2" length="14" precision="0" nullable="true" jdbcType="12"/>
+      <column name="LOC" sqlType="VARCHAR2" length="13" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PK_DEPT" columns="DEPTNO"/>
+      <exported-key name="FK_DEPTNO" table="EMP" schema="SCOTT" catalog="" columns="DEPTNO"/>
+    </table>
+    <table name="EMP" schema="SCOTT" catalog="" type="TABLE">
+      <column name="EMPNO" sqlType="NUMBER" length="4" precision="0" nullable="false" jdbcType="3"/>
+      <column name="ENAME" sqlType="VARCHAR2" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="JOB" sqlType="VARCHAR2" length="9" precision="0" nullable="true" jdbcType="12"/>
+      <column name="MGR" sqlType="NUMBER" length="4" precision="0" nullable="true" jdbcType="3"/>
+      <column name="HIREDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="SAL" sqlType="NUMBER" length="7" precision="2" nullable="true" jdbcType="3"/>
+      <column name="COMM" sqlType="NUMBER" length="7" precision="2" nullable="true" jdbcType="3"/>
+      <column name="DEPTNO" sqlType="NUMBER" length="2" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="PK_EMP" columns="EMPNO"/>
+      <foreign-key name="FK_DEPTNO" columns="DEPTNO" ref-table="DEPT" ref-schema="SCOTT" ref-catalog="" ref-columns="DEPTNO" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="HIBERNATE_SEQUENCE" schema="SCOTT" catalog="" type="SEQUENCE"/>
+    <table name="MYUSER" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="USERNAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="NAME" sqlType="VARCHAR2" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="INNERID" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="LEVAL" sqlType="VARCHAR2" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="ROLEID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="SYS_C0011222" columns="ID"/>
+      <foreign-key name="FKC0E0437750813025" columns="ROLEID" ref-table="ROLE" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK7326939155D6858F" table="USER_POWER" schema="SCOTT" catalog="" columns="USERID"/>
+      <index name="SYS_C0011223" unique="true" columns="USERNAME"/>
+    </table>
+    <table name="POWER" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="POWERNAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="MARK" sqlType="VARCHAR2" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="SYS_C0011226" columns="ID"/>
+      <exported-key name="FKC034BBDC56577E07" table="ROLE_POWER" schema="SCOTT" catalog="" columns="POWERID"/>
+      <exported-key name="FK7326939156577E07" table="USER_POWER" schema="SCOTT" catalog="" columns="POWERID"/>
+      <index name="SYS_C0011227" unique="true" columns="POWERNAME"/>
+    </table>
+    <table name="ROLE" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="ROLENAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="SYS_C0011230" columns="ID"/>
+      <exported-key name="FKC0E0437750813025" table="MYUSER" schema="SCOTT" catalog="" columns="ROLEID"/>
+      <exported-key name="FKC034BBDC50813025" table="ROLE_POWER" schema="SCOTT" catalog="" columns="ROLEID"/>
+      <exported-key name="FKF5B0B25950813025" table="ROLE_ROLETYPE" schema="SCOTT" catalog="" columns="ROLEID"/>
+      <index name="SYS_C0011231" unique="true" columns="ROLENAME"/>
+    </table>
+    <table name="ROLETYPE" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="TYPENAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="SYS_C0011245" columns="ID"/>
+      <exported-key name="FKF5B0B259E2BC4739" table="ROLE_ROLETYPE" schema="SCOTT" catalog="" columns="ROLETYPEID"/>
+      <index name="SYS_C0011246" unique="true" columns="TYPENAME"/>
+    </table>
+    <table name="ROLE_POWER" schema="SCOTT" catalog="" type="TABLE">
+      <column name="POWERID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="ROLEID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <primary-key name="SYS_C0011240" columns="POWERID,ROLEID"/>
+      <foreign-key name="FKC034BBDC56577E07" columns="POWERID" ref-table="POWER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FKC034BBDC50813025" columns="ROLEID" ref-table="ROLE" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="ROLE_ROLETYPE" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ROLEID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="ROLETYPEID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <primary-key name="SYS_C0011249" columns="ROLETYPEID,ROLEID"/>
+      <foreign-key name="FKF5B0B25950813025" columns="ROLEID" ref-table="ROLE" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FKF5B0B259E2BC4739" columns="ROLETYPEID" ref-table="ROLETYPE" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="SALGRADE" schema="SCOTT" catalog="" type="TABLE">
+      <column name="GRADE" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+      <column name="LOSAL" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+      <column name="HISAL" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="USER_POWER" schema="SCOTT" catalog="" type="TABLE">
+      <column name="USERID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="POWERID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <primary-key name="SYS_C0011234" columns="USERID,POWERID"/>
+      <foreign-key name="FK7326939155D6858F" columns="USERID" ref-table="MYUSER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK7326939156577E07" columns="POWERID" ref-table="POWER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+  </data-source>
+</component>

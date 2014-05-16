@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="RoleType" table="ROLETYPE" lazy="false">
+        <cache usage="read-write" region="bean.RoleType"/>
+        <id name="id" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+
+        <property name="typeName" column="TYPENAME" type="java.lang.String" length="50" unique="true" not-null="true" />
+
+        <!--与角色的对应关系-->
+        <set name="role" table="ROLE_ROLETYPE" lazy="false" inverse="false">
+            <key column="ROLETYPEID" />
+            <many-to-many column="ROLEID" class="bean.Role" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="Role" table="ROLE" lazy="false">
+        <cache usage="read-write" region="bean.Role"/>
+        <id name="id" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="roleName" column="ROLENAME" type="java.lang.String" length="50" unique="true" not-null="true" />
+
+        <!--角色对应用户-->
+        <set name="user" cascade="all" lazy="false">
+            <key column="ROLEID" />
+            <one-to-many class="bean.User" />
+        </set>
+
+        <!--角色对应权限-->
+        <set name="power" table="ROLE_POWER" lazy="false" inverse="false">
+            <key column="ROLEID" />
+            <many-to-many column="POWERID" class="bean.Power" />
+        </set>
+
+        <!--角色对应角色类别-->
+        <set name="roleType" table="ROLE_ROLETYPE" lazy="false" inverse="true">
+            <key column="ROLEID" />
+            <many-to-many column="ROLETYPEID" class="bean.RoleType" />
+        </set>
+
+    </class>
+</hibernate-mapping>

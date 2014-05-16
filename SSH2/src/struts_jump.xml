@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+                   <!--页面跳转-->
+<struts>
+    <package name="jump" extends="struts-default">
+
+        <global-results>
+            <result name="index" type="redirect">/index.html</result>
+        </global-results>
+
+        <!--<interceptors>
+            <interceptor name="jump" class="aop.struts2.JumpInterceptor" />
+            <interceptor-stack name="jumpstack">
+                <interceptor-ref name="jump" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+        </interceptors>-->
+
+        <!--<default-interceptor-ref name="jumpstack" />-->
+        <action name="jump_inner" class="action.jump.JumpToInner" method="JumpToInnerPower">
+            <result name="innerpower" type="redirect">/syspowermanager.html</result>
+            <!--<interceptor-ref name="jumpstack" />-->
+        </action>
+        <action name="jump_index" class="action.jump.JumpToInner" method="JumpToIndex">
+        </action>
+    </package>
+</struts>
