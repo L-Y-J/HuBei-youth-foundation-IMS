@@ -22,5 +22,17 @@
             <many-to-many column="POWERID" class="bean.Power"/>
         </set>
 
+        <!--用户对应发送的文件-->
+        <set name="sendFile" cascade="all" lazy="false">
+            <key column="FILEFROM" />
+            <one-to-many class="bean.UserFile" />
+        </set>
+
+        <!--对应用户接收的文件-->
+        <set name="reciveFile" table="USER_FILETO" lazy="false" inverse="false">
+            <key column="USERID" />
+            <many-to-many column="FILEID" class="bean.UserFile" />
+        </set>
+
     </class>
 </hibernate-mapping>

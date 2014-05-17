@@ -38,6 +38,9 @@
                 <value>bean/Power.hbm.xml</value>
                 <value>bean/Role.hbm.xml</value>
                 <value>bean/RoleType.hbm.xml</value>
+                <value>bean/UserFile.hbm.xml</value>
+                <value>bean/FileFoder.hbm.xml</value>
+                <value>bean/Department.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -68,5 +71,8 @@
     <bean id="PowerService" class="serviceimpl.PowerServiceBean" />
     <bean id="RoleService" class="serviceimpl.RoleServiceBean" />
     <bean id="RoleTypeService" class="serviceimpl.RoleTypeServiceBean" />
+    <bean id="FileFoderService" class="serviceimpl.FileFoderServiceBean" />
+    <bean id="UserFileService" class="serviceimpl.UserFileServiceBean" />
+    <bean id="DepartmentService" class="serviceimpl.DepartmentServiceBean" />
 
-</beans>       
+</beans>

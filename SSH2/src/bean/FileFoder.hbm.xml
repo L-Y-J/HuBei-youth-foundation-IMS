@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.FileFoder" table="FILEFODER" lazy="false">
+        <cache usage="read-write" region="bean.FileFoder"/>
+        <id name="foderId" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="foderName" column="FOLDERNAME" type="java.lang.String" length="50" not-null="true" />
+        <property name="fatherFoderId" column="FATHERFODERID" type="java.lang.Integer" />
+    </class>
+</hibernate-mapping>

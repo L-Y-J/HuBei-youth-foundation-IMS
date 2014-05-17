@@ -20,7 +20,7 @@ public interface PowerService {
 	Power getPowerByName(String powerName);
 
 
-	Boolean addPower(Power power);
+	boolean addPower(Power power);
 
 	boolean deletePower(Power power);
 

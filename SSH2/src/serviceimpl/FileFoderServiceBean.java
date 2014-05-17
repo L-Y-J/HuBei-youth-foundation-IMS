@@ -1,44 +1,45 @@
 package serviceimpl;
 
-import bean.Power;
+import bean.FileFoder;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import service.FileFoderService;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by yongjie on 14-5-13.
+ * Created by yongjie on 14-5-17.
  */
 
 @Transactional
-public class PowerServiceBean implements service.PowerService {
+public class FileFoderServiceBean implements FileFoderService {
 
 	@Resource
 	private SessionFactory sessionFactory;
 
 	@Override
 	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
-	public Power getPower(Integer powerId){
-		Power power=null;
+	public FileFoder getFoder(Integer foderId) {
+		FileFoder fileFoder;
 		try {
-			power = (Power) sessionFactory.getCurrentSession().get(Power.class,powerId);
+			fileFoder = (FileFoder) sessionFactory.getCurrentSession().get(FileFoder.class,foderId);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return null;
 		}
-		return power;
+		return fileFoder;
 	}
 
 	@Override
 	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
-	public List getPowers(){
+	public List getFoders() {
 		Query query = null;
 		try {
-			query = sessionFactory.getCurrentSession().createQuery("from Power");
+			query = sessionFactory.getCurrentSession().createQuery("from FileFoder");
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return null;
@@ -47,23 +48,9 @@ public class PowerServiceBean implements service.PowerService {
 	}
 
 	@Override
-	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
-	public Power getPowerByName(String powerName) {
-		Query query = null;
+	public boolean addFoder(FileFoder fileFoder) {
 		try {
-			query = sessionFactory.getCurrentSession().createQuery("from Power where powerName=?");
-			query.setString(0,powerName);
-		} catch (HibernateException e) {
-			e.printStackTrace();
-			return null;
-		}
-		return (Power)query.list().get(0);
-	}
-
-	@Override
-	public boolean addPower(Power power){
-		try {
-			sessionFactory.getCurrentSession().persist(power);
+			sessionFactory.getCurrentSession().persist(fileFoder);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
@@ -72,9 +59,9 @@ public class PowerServiceBean implements service.PowerService {
 	}
 
 	@Override
-	public boolean deletePower(Power power){
+	public boolean updateFoder(FileFoder fileFoder) {
 		try {
-			sessionFactory.getCurrentSession().delete(power);
+			sessionFactory.getCurrentSession().update(fileFoder);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
@@ -83,38 +70,13 @@ public class PowerServiceBean implements service.PowerService {
 	}
 
 	@Override
-	public boolean updatePower(Power power){
+	public boolean deleteFoder(FileFoder fileFoder) {
 		try {
-			sessionFactory.getCurrentSession().update(power);
+			sessionFactory.getCurrentSession().delete(fileFoder);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
 		}
 		return true;
 	}
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

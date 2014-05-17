@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.Department" table="DEPARTMENT" lazy="false">
+        <cache usage="read-write" region="bean.Department"/>
+        <id name="id" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="departmentName" column="DEPARTMENTNAME" type="java.lang.String" length="50" not-null="true" />
+        <property name="leval" column="LEVAL" type="java.lang.String" length="50" />
+    </class>
+</hibernate-mapping>

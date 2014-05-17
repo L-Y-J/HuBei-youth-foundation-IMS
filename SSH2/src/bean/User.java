@@ -1,5 +1,7 @@
 package bean;
 
+import org.apache.commons.lang.ObjectUtils;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +17,9 @@ public class User {
 	private String leval;
 	private Integer roleId;
 	private Set power = new HashSet();
+	private Set sendFile = new HashSet();
+	private Set reciveFile = new HashSet();
+
 
 	public User() {
 	}
@@ -83,6 +88,22 @@ public class User {
 		this.power = power;
 	}
 
+	public Set getSendFile() {
+		return sendFile;
+	}
+
+	public void setSendFile(Set sendFile) {
+		this.sendFile = sendFile;
+	}
+
+	public Set getReciveFile() {
+		return reciveFile;
+	}
+
+	public void setReciveFile(Set reciveFile) {
+		this.reciveFile = reciveFile;
+	}
+
 	public void addPower(Power power){
 		this.getPower().add(power);
 		power.getUser().add(this);
@@ -92,6 +113,25 @@ public class User {
 		this.getPower().remove(power);
 		power.getUser().remove(this);
 	}
+
+	public void addSendFile(UserFile userFile){
+		this.getSendFile().add(userFile);
+	}
+
+	public void deleteSendFile(UserFile userFile){
+		this.getSendFile().remove(userFile);
+		userFile.setFileFrom(null);
+	}
+
+	public void addReciveFile(UserFile userFile){
+		this.getReciveFile().add(userFile);
+	}
+
+	public void deleteReciveFile(UserFile userFile){
+		this.getReciveFile().remove(userFile);
+		userFile.getFileTo().remove(this);
+	}
+
 
 	@Override
 	public boolean equals(Object o) {
