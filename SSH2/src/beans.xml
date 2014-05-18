@@ -41,6 +41,7 @@
                 <value>bean/UserFile.hbm.xml</value>
                 <value>bean/FileFoder.hbm.xml</value>
                 <value>bean/Department.hbm.xml</value>
+                <value>bean/Job.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -74,5 +75,6 @@
     <bean id="FileFoderService" class="serviceimpl.FileFoderServiceBean" />
     <bean id="UserFileService" class="serviceimpl.UserFileServiceBean" />
     <bean id="DepartmentService" class="serviceimpl.DepartmentServiceBean" />
+    <bean id="JobService" class="serviceimpl.JobServiceBean" />
 
 </beans>

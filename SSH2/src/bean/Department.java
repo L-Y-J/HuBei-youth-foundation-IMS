@@ -1,5 +1,8 @@
 package bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by yongjie on 14-5-17.
  */
@@ -8,6 +11,8 @@ public class Department {
 	Integer id;
 	String departmentName;
 	String leval;
+
+	Set job = new HashSet();
 
 	public Department() {
 	}
@@ -34,5 +39,13 @@ public class Department {
 
 	public void setLeval(String leval) {
 		this.leval = leval;
+	}
+
+	public Set getJob() {
+		return job;
+	}
+
+	public void setJob(Set job) {
+		this.job = job;
 	}
 }

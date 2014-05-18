@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.Job" table="JOB" lazy="false">
+        <cache usage="read-write" region="bean.Job"/>
+        <id name="id" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="jobName" column="JOBNAME" type="java.lang.String" length="50" not-null="true" />
+        <!--对应部门ID-->
+        <property name="departmentId" column="DEPARTMENTID" type="java.lang.Integer" />
+    </class>
+</hibernate-mapping>

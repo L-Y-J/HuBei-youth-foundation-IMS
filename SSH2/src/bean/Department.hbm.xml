@@ -10,5 +10,10 @@
         </id>
         <property name="departmentName" column="DEPARTMENTNAME" type="java.lang.String" length="50" not-null="true" />
         <property name="leval" column="LEVAL" type="java.lang.String" length="50" />
+
+        <set name="job" cascade="all" lazy="false" inverse="false">
+            <key column="DEPARTMENTID" />
+            <one-to-many class="bean.Job" />
+        </set>
     </class>
 </hibernate-mapping>

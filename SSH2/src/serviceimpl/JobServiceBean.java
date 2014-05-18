@@ -1,44 +1,44 @@
 package serviceimpl;
 
-import bean.Department;
+import bean.Job;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import service.DepartmentService;
+import service.JobService;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by yongjie on 14-5-17.
+ * Created by yongjie on 14-5-18.
  */
-
 @Transactional
-public class DepartmentServiceBean implements DepartmentService {
+public class JobServiceBean implements JobService {
 
 	@Resource
 	SessionFactory sessionFactory;
 
 	@Override
 	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
-	public Department getDepartment(Integer departmentId) {
-		Department department = null;
-		try{
-			department = (Department) sessionFactory.getCurrentSession().get(Department.class,departmentId);
-		}catch (HibernateException e){
+	public Job getJob(Integer jobId) {
+		Job job = null;
+		try {
+			job = (Job) sessionFactory.getCurrentSession().get(Job.class,jobId);
+		} catch (HibernateException e) {
+			e.printStackTrace();
 			return null;
 		}
-		return department;
+		return job;
 	}
 
 	@Override
 	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
-	public List getDepartments() {
+	public List getJobs() {
 		Query query = null;
 		try {
-			query = sessionFactory.getCurrentSession().createQuery("from Department");
+			query = sessionFactory.getCurrentSession().createQuery("from Job");
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return null;
@@ -47,20 +47,9 @@ public class DepartmentServiceBean implements DepartmentService {
 	}
 
 	@Override
-	public boolean addDepartment(Department department) {
-		try{
-			sessionFactory.getCurrentSession().persist(department);
-		} catch (HibernateException e){
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-
-	@Override
-	public boolean updateDepartment(Department department) {
+	public boolean addJob(Job job) {
 		try {
-			sessionFactory.getCurrentSession().update(department);
+			sessionFactory.getCurrentSession().persist(job);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
@@ -69,9 +58,20 @@ public class DepartmentServiceBean implements DepartmentService {
 	}
 
 	@Override
-	public boolean deleteDepartment(Department department) {
+	public boolean updateJob(Job job) {
 		try {
-			sessionFactory.getCurrentSession().delete(department);
+			sessionFactory.getCurrentSession().update(job);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean deleteJob(Job job) {
+		try {
+			sessionFactory.getCurrentSession().delete(job);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
