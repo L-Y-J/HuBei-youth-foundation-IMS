@@ -13,6 +13,13 @@
       <column name="SAL" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
       <column name="COMM" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
     </table>
+    <table name="DEPARTMENT" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="DEPARTMENTNAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="LEVAL" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="SYS_C0011407" columns="ID"/>
+      <exported-key name="FK11F9D62FCC05D" table="JOB" schema="SCOTT" catalog="" columns="DEPARTMENTID"/>
+    </table>
     <table name="DEPT" schema="SCOTT" catalog="" type="TABLE">
       <column name="DEPTNO" sqlType="NUMBER" length="2" precision="0" nullable="false" jdbcType="3"/>
       <column name="DNAME" sqlType="VARCHAR2" length="14" precision="0" nullable="true" jdbcType="12"/>
@@ -32,7 +39,20 @@
       <primary-key name="PK_EMP" columns="EMPNO"/>
       <foreign-key name="FK_DEPTNO" columns="DEPTNO" ref-table="DEPT" ref-schema="SCOTT" ref-catalog="" ref-columns="DEPTNO" update-rule="0" delete-rule="1" deferrability="2"/>
     </table>
+    <table name="FILEFODER" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="FOLDERNAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="FATHERFODERID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="SYS_C0011378" columns="ID"/>
+    </table>
     <table name="HIBERNATE_SEQUENCE" schema="SCOTT" catalog="" type="SEQUENCE"/>
+    <table name="JOB" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="JOBNAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="DEPARTMENTID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="SYS_C0011435" columns="ID"/>
+      <foreign-key name="FK11F9D62FCC05D" columns="DEPARTMENTID" ref-table="DEPARTMENT" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
     <table name="MYUSER" schema="SCOTT" catalog="" type="TABLE">
       <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
       <column name="USERNAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
@@ -43,6 +63,8 @@
       <column name="ROLEID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
       <primary-key name="SYS_C0011222" columns="ID"/>
       <foreign-key name="FKC0E0437750813025" columns="ROLEID" ref-table="ROLE" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK1ECBF3C75BDC428F" table="USERFILE" schema="SCOTT" catalog="" columns="FILEFROM"/>
+      <exported-key name="FKFD5CD7EB55D6858F" table="USER_FILETO" schema="SCOTT" catalog="" columns="USERID"/>
       <exported-key name="FK7326939155D6858F" table="USER_POWER" schema="SCOTT" catalog="" columns="USERID"/>
       <index name="SYS_C0011223" unique="true" columns="USERNAME"/>
     </table>
@@ -90,12 +112,41 @@
       <column name="LOSAL" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
       <column name="HISAL" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
     </table>
+    <table name="USERFILE" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="22" precision="0" nullable="false" jdbcType="3"/>
+      <column name="USERFILENAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="FILEFROM" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+      <column name="FILEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="ISREAD" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="USERFILE_PK" columns="ID"/>
+      <foreign-key name="FK1ECBF3C75BDC428F" columns="FILEFROM" ref-table="MYUSER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="FKFD5CD7EB5BB741C" table="USER_FILETO" schema="SCOTT" catalog="" columns="FILEID"/>
+    </table>
+    <table name="USER_FILETO" schema="SCOTT" catalog="" type="TABLE">
+      <column name="USERID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="FILEID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <primary-key name="SYS_C0011386" columns="FILEID,USERID"/>
+      <foreign-key name="FKFD5CD7EB55D6858F" columns="USERID" ref-table="MYUSER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FKFD5CD7EB5BB741C" columns="FILEID" ref-table="USERFILE" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
     <table name="USER_POWER" schema="SCOTT" catalog="" type="TABLE">
       <column name="USERID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
       <column name="POWERID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
       <primary-key name="SYS_C0011234" columns="USERID,POWERID"/>
       <foreign-key name="FK7326939155D6858F" columns="USERID" ref-table="MYUSER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
       <foreign-key name="FK7326939156577E07" columns="POWERID" ref-table="POWER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="WRITER" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="WRITERNAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="PHONEAREA" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="PHONE" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CELLPHONE" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="FAXAREA" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="FAX" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="EMAIL" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="JOBID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="SYS_C0011443" columns="ID"/>
     </table>
   </data-source>
 </component>

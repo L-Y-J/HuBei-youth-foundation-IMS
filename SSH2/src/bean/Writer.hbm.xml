@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.Writer" table="WRITER" lazy="false">
+        <cache usage="read-write" region="bean.Writer"/>
+        <id name="writerId" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="writerName" column="WRITERNAME" type="java.lang.String" length="50" not-null="true" />
+        <property name="phoneArea" column="PHONEAREA" type="java.lang.String" length="50" />
+        <property name="phone" column="PHONE" type="java.lang.String" length="50" />
+        <property name="cellPhone" column="CELLPHONE" type="java.lang.String" length="50" />
+        <property name="faxArea" column="FAXAREA" type="java.lang.String" length="50" />
+        <property name="fax" column="FAX" type="java.lang.String" length="50" />
+        <property name="email" column="EMAIL" type="java.lang.String" length="50" />
+        <!--对应JOB-->
+        <property name="jobId" column="JOBID" type="java.lang.Integer" />
+    </class>
+</hibernate-mapping>
