@@ -22,7 +22,7 @@ public class DepartmentTest {
 	private static JobService jobService;
 
     @BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	 public static void setUpBeforeClass() throws Exception {
 		try {
 			ApplicationContext applicationcontext = new ClassPathXmlApplicationContext("beans.xml");
 			departmentService = (DepartmentService) applicationcontext.getBean("DepartmentService");

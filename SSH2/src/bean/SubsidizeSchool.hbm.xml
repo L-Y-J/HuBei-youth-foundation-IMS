@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.SubsidizeSchool" table="SUBSIDIZESCHOOL" lazy="false">
+        <cache usage="read-write" region="bean.SubsidizeSchool"/>
+        <id name="schoolId" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="schoolName" column="SCHOOLNAME" type="java.lang.String" length="50" />
+        <property name="recordDate" column="RECORDDATE" type="java.util.Date" />
+        <property name="completeDate" column="COMPLETEDATE" type="java.util.Date" />
+        <property name="province" column="PROVINCE" type="java.lang.String" />
+        <property name="qu" column="QU" type="java.lang.String" />
+        <property name="xian" column="XIAN" type="java.lang.String" />
+        <property name="xiang" column="XIANG" type="java.lang.String" />
+        <property name="cun" column="CUN" type="java.lang.String" />
+        <property name="localXiang" column="LOCALXIANG" type="java.lang.String" />
+        <property name="localCun" column="LOCALCUN" type="java.lang.String" />
+        <property name="isMerge" column="ISMERGE" type="java.lang.Integer" />
+        <property name="mergeSchool" column="MERGESCHOOL" type="java.lang.String" />
+        <property name="mergeVillages" column="MERGEVILLAGES" type="java.lang.String" />
+        <property name="mergeHanlet" column="MERGEHANLET" type="java.lang.String" />
+        <property name="mergeLocalXiang" column="MERGELOCALXIANG" type="java.lang.String" />
+        <property name="mergeLocalCun" column="MERGELOCALCUN" type="java.lang.String" />
+        <property name="presidentName1" column="PRESIDENTNAME1" type="java.lang.String" />
+        <property name="presidentName2" column="PRESIDENTNAME2" type="java.lang.String" />
+        <property name="homePhoneArea" column="HOMEPHONEAREA" type="java.lang.String" />
+        <property name="homePhone" column="HOMEPHONE" type="java.lang.String" />
+        <property name="officePhoneArea" column="OFFICEPHONEAREA" type="java.lang.String" />
+        <property name="officePhone" column="OFFICEPHONE" type="java.lang.String" />
+        <property name="email1" column="EMAIL1" type="java.lang.String" />
+        <property name="email2" column="EMAIL2" type="java.lang.String" />
+        <property name="cellPhone1" column="CELLPHONE1" type="java.lang.String" />
+        <property name="cellPhone2" column="CELLPHONE2" type="java.lang.String" />
+        <property name="backgroundInformation" column="BACKGROUNDINFORMATION" type="java.lang.String" />
+        <property name="numOfClass" column="NUMOFCLASS" type="java.lang.Integer" />
+        <property name="numOfStudent" column="NUMOFSTUDENT" type="java.lang.Integer" />
+        <property name="villageStudentsFrom" column="VILLAGESTUDENTFROM" type="java.lang.Integer" />
+        <property name="areaStudentsFrom" column="AREASTUDENTFROM" type="java.lang.Integer" />
+        <property name="numOfSubsidizeStudent" column="NUMOFSUBSIDIZESTUDENT" type="java.lang.Integer" />
+        <property name="numOfTeacher" column="NUMOFTEACHER" type="java.lang.Integer" />
+        <property name="numOfOfficeTeacher" column="NUMOFOFFICETEACHER" type="java.lang.Integer" />
+        <property name="nunOfSubstituteTeacher" column="NUMOFSUBSIDIZETEACHER" type="java.lang.Integer" />
+        <property name="numBoardingTeacher" column="NUMBOARDINGTEACHER" type="java.lang.Integer" />
+        <property name="numOfBoardingStudent" column="NUMOFBOARDINGSTUDENT" type="java.lang.Integer" />
+        <property name="covers" column="COVERS" type="java.lang.Integer" />
+        <property name="buildingArea" column="BUILDINGAREA" type="java.lang.Integer" />
+        <property name="classroomArea" column="CLASSROOMAREA" type="java.lang.Integer" />
+        <property name="classroomCompleteDate" column="CLASSROOMCOMPLETEDATE" type="java.util.Date" />
+        <property name="classroomType" column="CLASSROOMTYPE" type="java.lang.String" />
+        <property name="classroomDanger" column="CLASSROOMDANGER" type="java.lang.String" />
+        <property name="studentDormitoryArea" column="STUDENTDORMITORYAREA" type="java.lang.Integer" />
+        <property name="studentDormitoryCompleteDate" column="STUDENTDORMITORYCOMPLETEDATE" type="java.util.Date" />
+        <property name="studentDormitoryType" column="STUDENTDORMITORYTYPE" type="java.lang.String" />
+        <property name="studentDormitoryDanger" column="STUDENTDORMITORYDANGER" type="java.lang.String" />
+        <property name="teacherDormitoryArea" column="TEACHERDORMITORYAREA" type="java.lang.Integer" />
+        <property name="teacherDormitoryCompleteDate" column="TEACHERDORMITORYCOMPLETEDATE" type="java.util.Date" />
+        <property name="teacherDormitoryType" column="TEACHERDORMITORYTYPE" type="java.lang.String" />
+        <property name="teacherDormitoryDanger" column="TEACHERDORMITORYDANGER" type="java.lang.String" />
+        <property name="canteenArea" column="CANTEENAREA" type="java.lang.Integer" />
+        <property name="canteenCompleteDate" column="CANTEENCOMPLETEDATE" type="java.util.Date" />
+        <property name="canteenType" column="CANTEENTYPE" type="java.lang.String" />
+        <property name="canteenDanger" column="CANTEENDANGER" type="java.lang.String" />
+        <property name="toiltArea" column="TOILTAREA" type="java.lang.Integer" />
+        <property name="toiltCompleteDate" column="TOILTCOMPLETEDATE" type="java.util.Date" />
+        <property name="toiltDanger" column="TOILTDANGER" type="java.lang.String" />
+        <property name="toiltSituation" type="java.lang.Integer" />
+        <property name="other" type="java.lang.String" />
+        <property name="havePlayground" type="java.lang.Integer" />
+        <property name="teacherEducationPassRate" type="java.lang.Integer" />
+        <property name="teacherJobPassRate" type="java.lang.Integer" />
+        <property name="enrollmentOfStudent" type="java.lang.Integer" />
+        <property name="studentRetentionRate" type="java.lang.Integer" />
+        <property name="studentDropoutRate" type="java.lang.Integer" />
+        <property name="enrollmentRateOfStudent" type="java.lang.Integer" />
+        <property name="deskRate" type="java.lang.Integer" />
+        <property name="instrumentRate" type="java.lang.Integer" />
+        <property name="numOfBooks" type="java.lang.Integer" />
+        <property name="numOfComputer" type="java.lang.Integer" />
+        <property name="typeOfComputer" type="java.lang.String" />
+        <property name="sportsEquipmentSituation" type="java.lang.String" />
+        <property name="haveIntent" type="java.lang.Integer" />
+        <property name="honor" type="java.lang.String" />
+        <property name="futureNumOfStudent" type="java.lang.Integer" />
+        <property name="futureNumOfBoardingStudent" type="java.lang.Integer" />
+        <property name="futureNumOfTeacher" type="java.lang.Integer" />
+        <property name="futureNumOfBoardingTeacher" type="java.lang.Integer" />
+        <property name="changeReason" type="java.lang.String" />
+        <property name="haveEngineering" type="java.lang.Integer" />
+        <property name="xianAverageIncome" type="java.lang.Integer" />
+        <property name="xiangAverageIncome" type="java.lang.Integer" />
+        <property name="cunAverageIncome" type="java.lang.Integer" />
+
+        <set name="monthlyProgress" cascade="all" lazy="false">
+            <key column="SUBSIDIZESCHOOLID" />
+            <one-to-many class="bean.MonthlyProgress" />
+        </set>
+
+
+    </class>
+</hibernate-mapping>

@@ -1,11 +1,14 @@
 package bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by yongjie on 14-5-18.
  */
 public class Writer {
 
-	Integer writerId;
+	Integer id;
 	String writerName;
 	String phoneArea;
 	String phone;
@@ -14,16 +17,17 @@ public class Writer {
 	String fax;
 	String email;
 	Integer jobId;
+	Set monthlyProgress = new HashSet();
 
 	public Writer() {
 	}
 
-	public Integer getWriterId() {
-		return writerId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setWriterId(Integer writerId) {
-		this.writerId = writerId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getWriterName() {
@@ -88,5 +92,13 @@ public class Writer {
 
 	public void setJobId(Integer jobId) {
 		this.jobId = jobId;
+	}
+
+	public Set getMonthlyProgress() {
+		return monthlyProgress;
+	}
+
+	public void setMonthlyProgress(Set monthlyProgress) {
+		this.monthlyProgress = monthlyProgress;
 	}
 }

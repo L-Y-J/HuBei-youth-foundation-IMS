@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.MonthlyProgress" table="MONTHLYPROGRESS" lazy="false">
+        <cache usage="read-write" region="bean.MonthlyProgress"/>
+        <id name="monthlyProgressId" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="writeDate" column="TWRITEDATE" type="java.util.Date" />
+        <property name="state" column="TSTATE" type="java.lang.Integer" />
+        <property name="canDoneOnTime" column="TCANDONEONTIME" type="java.lang.Integer" />
+        <property name="description" column="TDSECRIPTION" type="java.lang.String" />
+        <property name="signature" column="TSIGNATURE" type="java.lang.String" />
+        <property name="phoneAera" column="TPHONEAREA" type="java.lang.String" />
+        <property name="phone" column="TPHONE" type="java.lang.String" />
+
+        <property name="writerId" column="WRITERID" type="java.lang.Integer"/>
+        <property name="subsidizeSchoolId" column="SUBSIDIZESCHOOLID" type="java.lang.Integer"/>
+    </class>
+</hibernate-mapping>

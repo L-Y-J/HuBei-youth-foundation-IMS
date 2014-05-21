@@ -1,10 +1,12 @@
 package unit;
 
+import bean.MonthlyProgress;
 import bean.Writer;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.MonthlyProgressService;
 import service.WriterService;
 
 import java.util.List;
@@ -15,12 +17,14 @@ import java.util.List;
 public class WriterTest {
 
 	private static WriterService writerService;
+	private static MonthlyProgressService monthlyProgressService;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		try {
 			ApplicationContext applicationcontext = new ClassPathXmlApplicationContext("beans.xml");
 			writerService = (WriterService) applicationcontext.getBean("WriterService");
+			monthlyProgressService = (MonthlyProgressService) applicationcontext.getBean("MonthlyProgressService");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -70,6 +74,15 @@ public class WriterTest {
 		Writer writer = writerService.getWriter(124);
 		boolean a = writerService.deleteWriter(writer);
 		System.out.println(a);
+	}
+
+	@Test
+	public void Write_Monthlyproccess_Test(){
+		Writer writer = writerService.getWriter(125);
+		MonthlyProgress monthlyProgress = monthlyProgressService.getMonthlyProgress(180);
+		writer.getMonthlyProgress().add(monthlyProgress);
+//		monthlyProgressService.updateMonthlyProgress(monthlyProgress);
+		writerService.updateWriter(writer);
 	}
 
 
