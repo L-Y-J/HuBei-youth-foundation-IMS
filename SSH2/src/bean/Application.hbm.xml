@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.Application" table="APPLICATION" lazy="false">
+        <cache usage="read-write" region="bean.Application"/>
+        <id name="appilcationId" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        
+        <property name="state" type="java.lang.String" />
+        <property name="approveFromDepartment" type="java.lang.String" />
+        <property name="provinceOptions" type="java.lang.String" />
+        <property name="writer" type="java.lang.String" />
+        <property name="ifMove" type="java.lang.Integer" />
+        <property name="willHaveDanger" type="java.lang.Integer" />
+        <property name="willHaveInternet" type="java.lang.Integer" />
+        <property name="governmentMoney" type="java.lang.Integer" />
+        <property name="totalMoney" type="java.lang.Integer" />
+        <property name="newFacility" type="java.lang.Integer" />
+        <property name="ifMove2" type="java.lang.Integer" />
+        <property name="classroomFoold" type="java.lang.Integer" />
+        <property name="cassroomStructure" type="java.lang.String" />
+        <property name="classroomArea" type="java.lang.Integer" />
+        <property name="classroomCost" type="java.lang.Integer" />
+        <property name="studentDormitoryFoold" type="java.lang.Integer" />
+        <property name="studentDormitoryStructrue" type="java.lang.String" />
+        <property name="studentDormitoryArea" type="java.lang.Integer" />
+        <property name="studentDormitoryCost" type="java.lang.Integer" />
+        <property name="teacherDormitoryFoold" type="java.lang.Integer" />
+        <property name="teacherDormitoryStructrue" type="java.lang.String" />
+        <property name="teacherDormitoryArea" type="java.lang.Integer" />
+        <property name="teacherDormitoryCost" type="java.lang.Integer" />
+        <property name="toiletStructrue" type="java.lang.String" />
+        <property name="toiletArea" type="java.lang.Integer" />
+        <property name="toiletCost" type="java.lang.Integer" />
+        <property name="canteenStructure" type="java.lang.String" />
+        <property name="canteenArea" type="java.lang.Integer" />
+        <property name="canteenCost" type="java.lang.Integer" />
+        <property name="other" type="java.lang.String" />
+        <property name="covers" type="java.lang.Integer" />
+        <property name="buildingArea" type="java.lang.Integer" />
+        <property name="havePlayground" type="java.lang.Integer" />
+        <property name="playgroundIncllude" type="java.lang.String" />
+
+        <property name="subsidizeSchoolId" type="java.lang.Integer" />
+        <property name="writerId" type="java.lang.Integer" />
+
+        <set name="photo" cascade="all" lazy="false">
+            <key column="APPLICATIONID" />
+            <one-to-many class="bean.Photo" />
+        </set>
+        
+    </class>
+</hibernate-mapping>

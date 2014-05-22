@@ -19,6 +19,8 @@ public class MonthlyProgress {
     public Integer writerId;
     public Integer subsidizeSchoolId;
 
+	Set photo = new HashSet();
+
 	public MonthlyProgress() {
 	}
 
@@ -100,5 +102,13 @@ public class MonthlyProgress {
 
 	public void setSubsidizeSchoolId(Integer subsidizeSchoolId) {
 		this.subsidizeSchoolId = subsidizeSchoolId;
+	}
+
+	public Set getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(Set photo) {
+		this.photo = photo;
 	}
 }

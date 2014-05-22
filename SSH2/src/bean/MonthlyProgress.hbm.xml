@@ -18,5 +18,11 @@
 
         <property name="writerId" column="WRITERID" type="java.lang.Integer"/>
         <property name="subsidizeSchoolId" column="SUBSIDIZESCHOOLID" type="java.lang.Integer"/>
+
+        <set name="photo" cascade="all" lazy="false">
+            <key column="MONTHLYPROCCESSID" />
+            <one-to-many class="bean.Photo" />
+        </set>
+
     </class>
 </hibernate-mapping>

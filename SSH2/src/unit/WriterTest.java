@@ -1,11 +1,13 @@
 package unit;
 
+import bean.Application;
 import bean.MonthlyProgress;
 import bean.Writer;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.AppilcationService;
 import service.MonthlyProgressService;
 import service.WriterService;
 
@@ -18,6 +20,7 @@ public class WriterTest {
 
 	private static WriterService writerService;
 	private static MonthlyProgressService monthlyProgressService;
+	private static AppilcationService appilcationService;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -25,6 +28,7 @@ public class WriterTest {
 			ApplicationContext applicationcontext = new ClassPathXmlApplicationContext("beans.xml");
 			writerService = (WriterService) applicationcontext.getBean("WriterService");
 			monthlyProgressService = (MonthlyProgressService) applicationcontext.getBean("MonthlyProgressService");
+			appilcationService = (AppilcationService) applicationcontext.getBean("AppilcationService");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -82,6 +86,15 @@ public class WriterTest {
 		MonthlyProgress monthlyProgress = monthlyProgressService.getMonthlyProgress(180);
 		writer.getMonthlyProgress().add(monthlyProgress);
 //		monthlyProgressService.updateMonthlyProgress(monthlyProgress);
+		writerService.updateWriter(writer);
+	}
+
+	@Test
+	public void Writer_Application(){
+		Writer writer = writerService.getWriter(181);
+//		Application application = appilcationService.getApplication(204);
+//		writer.getAppliaction().add(application);
+		writer.getAppliaction().clear();
 		writerService.updateWriter(writer);
 	}
 

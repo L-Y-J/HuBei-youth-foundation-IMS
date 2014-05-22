@@ -18,6 +18,7 @@ public class Writer {
 	String email;
 	Integer jobId;
 	Set monthlyProgress = new HashSet();
+	Set appliaction = new HashSet();
 
 	public Writer() {
 	}
@@ -100,5 +101,13 @@ public class Writer {
 
 	public void setMonthlyProgress(Set monthlyProgress) {
 		this.monthlyProgress = monthlyProgress;
+	}
+
+	public Set getAppliaction() {
+		return appliaction;
+	}
+
+	public void setAppliaction(Set appliaction) {
+		this.appliaction = appliaction;
 	}
 }

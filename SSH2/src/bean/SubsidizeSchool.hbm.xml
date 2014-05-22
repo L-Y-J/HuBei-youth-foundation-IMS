@@ -98,6 +98,16 @@
             <one-to-many class="bean.MonthlyProgress" />
         </set>
 
+        <set name="application" cascade="all" lazy="false">
+            <key column="SUBSIDIZESCHOOLID" />
+            <one-to-many class="bean.Application" />
+        </set>
+
+        <set name="subsidize" table="SUBSIDIZE_SCHOOL" lazy="false" inverse="false">
+            <key column="SCHOOLID" />
+            <many-to-many column="SUBSIDIZEID" class="bean.Subsidize" />
+        </set>
+
 
     </class>
 </hibernate-mapping>

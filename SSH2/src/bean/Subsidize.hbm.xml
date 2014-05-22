@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.Subsidize" table="SUBSIDIZE" lazy="false">
+        <cache usage="read-write" region="bean.Subsidize"/>
+        <id name="subsidizeId" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+
+        <property name="subsidizer" type="java.lang.String" />
+        <property name="subsidizeProvince" type="java.lang.String" />
+        <property name="subsidizeDate" type="java.util.Date" />
+        <property name="subsidizeMoney" type="java.lang.Integer" />
+        <property name="subsidizeItem" type="java.lang.String" />
+        <property name="subsidizeDapartment" type="java.lang.String" />
+        <property name="isForeign" type="java.lang.Integer" />
+        <property name="isNation" type="java.lang.Integer" />
+        <property name="isPersonal" type="java.lang.Integer" />
+        <property name="remark" type="java.lang.String" />
+        <property name="state" type="java.lang.String" />
+        <property name="subsidizerPlace" type="java.lang.String" />
+
+        <set name="school" table="SUBSIDIZE_SCHOOL" lazy="false" inverse="false">
+            <key column="SUBSIDIZEID" />
+            <many-to-many column="SCHOOLID" class="bean.SubsidizeSchool" />
+        </set>
+
+        <set name="students" table="SUBSIDIZE_STUDENTS" lazy="false" inverse="false">
+            <key column="SUBSIDIZEID" />
+            <many-to-many column="STUDENTID" class="bean.Students" />
+        </set>
+
+    </class>
+</hibernate-mapping>

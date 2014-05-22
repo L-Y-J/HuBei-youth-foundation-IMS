@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.Photo" table="TPHOTO" lazy="false">
+        <cache usage="read-write" region="bean.Photo"/>
+        <id name="photoId" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+
+        <property name="photoName" column="TPHOTONAME" type="java.lang.String" />
+        <property name="information" column="TINFORMATION" type="java.lang.String" />
+        <property name="photoType" column="TPHOTOTYPE" type="java.lang.String" />
+        <property name="number" column="TNUMBER" type="java.lang.Integer" />
+
+        <property name="applicationId" column="APPLICATIONID" type="java.lang.Integer" />
+        <property name="monthlyProgressId" column="MONTHLYPROCCESSID" type="java.lang.Integer" />
+
+    </class>
+</hibernate-mapping>

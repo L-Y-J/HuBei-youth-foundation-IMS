@@ -23,5 +23,10 @@
         <one-to-many class="bean.MonthlyProgress" />
     </set>
 
+    <set name="appliaction" cascade="all" lazy="false">
+        <key column="WRITERID" />
+        <one-to-many class="bean.Application" />
+    </set>
+
 </class>
 </hibernate-mapping>

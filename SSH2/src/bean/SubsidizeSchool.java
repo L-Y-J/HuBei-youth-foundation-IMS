@@ -96,6 +96,8 @@ public class SubsidizeSchool {
 	Integer cunAverageIncome;
 
 	Set monthlyProgress = new HashSet();
+	Set application = new HashSet();
+	Set subsidize = new HashSet();
 
 	public SubsidizeSchool() {
 	}
@@ -787,6 +789,22 @@ public class SubsidizeSchool {
 
 	public void setMonthlyProgress(Set monthlyProgress) {
 		this.monthlyProgress = monthlyProgress;
+	}
+
+	public Set getApplication() {
+		return application;
+	}
+
+	public void setApplication(Set application) {
+		this.application = application;
+	}
+
+	public Set getSubsidize() {
+		return subsidize;
+	}
+
+	public void setSubsidize(Set subsidize) {
+		this.subsidize = subsidize;
 	}
 }
 
