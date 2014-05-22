@@ -110,4 +110,21 @@ public class Writer {
 	public void setAppliaction(Set appliaction) {
 		this.appliaction = appliaction;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Writer)) return false;
+
+		Writer writer = (Writer) o;
+
+		if (!id.equals(writer.id)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return id.hashCode();
+	}
 }

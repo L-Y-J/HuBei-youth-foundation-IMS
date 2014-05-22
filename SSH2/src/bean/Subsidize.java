@@ -148,4 +148,21 @@ public class Subsidize {
 	public void setStudents(Set students) {
 		this.students = students;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Subsidize)) return false;
+
+		Subsidize subsidize = (Subsidize) o;
+
+		if (SubsidizeId != subsidize.SubsidizeId) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return SubsidizeId;
+	}
 }

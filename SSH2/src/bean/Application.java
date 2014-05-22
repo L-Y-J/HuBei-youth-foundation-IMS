@@ -354,4 +354,21 @@ public class Application {
 	public void setWriterId(Integer writerId) {
 		this.writerId = writerId;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Application)) return false;
+
+		Application that = (Application) o;
+
+		if (AppilcationId != that.AppilcationId) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return AppilcationId;
+	}
 }

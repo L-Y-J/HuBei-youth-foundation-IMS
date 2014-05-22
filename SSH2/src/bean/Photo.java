@@ -70,4 +70,21 @@ public class Photo {
 	public void setMonthlyProgressId(Integer monthlyProgressId) {
 		this.monthlyProgressId = monthlyProgressId;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Photo)) return false;
+
+		Photo photo = (Photo) o;
+
+		if (PhotoId != photo.PhotoId) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return PhotoId;
+	}
 }

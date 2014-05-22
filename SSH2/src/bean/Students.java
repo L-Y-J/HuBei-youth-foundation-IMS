@@ -67,4 +67,21 @@ public class Students {
 	public void setSubsidize(Set subsidize) {
 		this.subsidize = subsidize;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Students)) return false;
+
+		Students students = (Students) o;
+
+		if (!studentId.equals(students.studentId)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return studentId.hashCode();
+	}
 }

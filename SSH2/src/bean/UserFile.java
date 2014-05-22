@@ -65,4 +65,21 @@ public class UserFile {
 	public void setIsRead(Integer isRead) {
 		this.isRead = isRead;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof UserFile)) return false;
+
+		UserFile userFile = (UserFile) o;
+
+		if (!fileId.equals(userFile.fileId)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return fileId.hashCode();
+	}
 }

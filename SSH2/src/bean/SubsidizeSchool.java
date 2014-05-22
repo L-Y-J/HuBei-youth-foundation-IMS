@@ -806,6 +806,23 @@ public class SubsidizeSchool {
 	public void setSubsidize(Set subsidize) {
 		this.subsidize = subsidize;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof SubsidizeSchool)) return false;
+
+		SubsidizeSchool school = (SubsidizeSchool) o;
+
+		if (!schoolId.equals(school.schoolId)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return schoolId.hashCode();
+	}
 }
 
 

@@ -111,4 +111,21 @@ public class MonthlyProgress {
 	public void setPhoto(Set photo) {
 		this.photo = photo;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof MonthlyProgress)) return false;
+
+		MonthlyProgress progress = (MonthlyProgress) o;
+
+		if (monthlyProgressId != progress.monthlyProgressId) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return monthlyProgressId;
+	}
 }

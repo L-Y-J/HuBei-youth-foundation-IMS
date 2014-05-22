@@ -244,12 +244,25 @@ function DeleteJob(){
     var jobId = job.children().html();
 
     $.ajax({
-        url:'',
+        url:'del_job.do',
         type:'POST',
         data:{'departmentId':departmentId,'jobId':jobId},
         dataType:'text',
         success:function(data){
-            alert(data);
+//            alert(data);
+            var json = $.parseJSON(data);
+            if(json.state=="success"){
+                $("#divAlert").attr('class','alert alert-success');
+                $("#divAlert").children('p').html("<h4>岗位删除成功</h4>");
+                $("#divAlert").show();
+                job.remove();
+                job = null;
+            }
+            else{
+                $("#divAlert").attr('class','alert alert-danger');
+                $("#divAlert").children('p').html("<h4>岗位删除失败</h4>");
+                $("#divAlert").show();
+            }
         }
     });
 

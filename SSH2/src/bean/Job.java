@@ -35,4 +35,21 @@ public class Job {
 	public void setDepartmentId(Integer departmentId) {
 		this.departmentId = departmentId;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Job)) return false;
+
+		Job job = (Job) o;
+
+		if (!id.equals(job.id)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return id.hashCode();
+	}
 }

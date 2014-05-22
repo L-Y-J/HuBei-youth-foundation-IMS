@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import service.DepartmentService;
+import service.JobService;
 import sun.tools.jar.resources.jar_it;
 
 import javax.annotation.Resource;
@@ -28,6 +29,8 @@ public class CodeManager extends ActionSupport implements ServletRequestAware,Se
 
 	@Resource
 	DepartmentService departmentService;
+	@Resource
+	JobService jobService;
 
 	private HttpServletResponse response;
 	private HttpServletRequest request;
@@ -230,11 +233,19 @@ public class CodeManager extends ActionSupport implements ServletRequestAware,Se
 	}
 
 
+	/**
+	 * 删除指定部门的某个岗位
+	 */
 	public String DelJob(){
 		response.setContentType("json/javascript;charset=utf-8");
 		String tag = "failed";
-
-
+		Department department = departmentService.getDepartment(Integer.parseInt(this.departmentId));
+		Job job = jobService.getJob(Integer.parseInt(this.jobId));
+		if (department!=null && job!=null){
+			department.getJob().remove(job);
+			departmentService.updateDepartment(department);
+			tag = "success";
+	    }
 
 		HashMap<String,String> map = new HashMap<String, String>();
 		map.put("state",tag);
