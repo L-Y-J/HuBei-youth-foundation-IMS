@@ -10,5 +10,13 @@
         </action>
         <action name="department_job" class="action.inner.syscodemanager.CodeManager" method="SelectDepartmentJob">
         </action>
+        <action name="add_department" class="action.inner.syscodemanager.CodeManager" method="AddDepartment">
+        </action>
+        <action name="del_department" class="action.inner.syscodemanager.CodeManager" method="DelDepartment">
+        </action>
+        <action name="add_job" class="action.inner.syscodemanager.CodeManager" method="AddJob">
+        </action>
+        <action name="del_job" class="action.inner.syscodemanager.CodeManager" method="DelJob">
+        </action>
     </package>
 </struts>
