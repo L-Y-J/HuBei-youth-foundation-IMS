@@ -67,7 +67,10 @@
     <!--启用AspectJ对Annotation的支持-->
     <aop:aspectj-autoproxy/>
     <!--<bean id="AddCheck" class="aop.spring.AddCheck" />-->
-
+    <bean id="AddCheck" class="aop.spring.AddCheck"/>
+    <bean id="SqlCheck" class="aop.spring.sqlcheck"/>
+    <bean id="UpdateCheck" class="aop.spring.UpdateCheck"/>
+    <bean id="DeleteCheck" class="aop.spring.DeleteCheck"/>
     <bean id="UserService" class="serviceimpl.UserServiceBean"/>
     <bean id="PowerService" class="serviceimpl.PowerServiceBean" />
     <bean id="RoleService" class="serviceimpl.RoleServiceBean" />
