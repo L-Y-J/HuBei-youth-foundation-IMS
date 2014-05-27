@@ -42,6 +42,14 @@
                 <value>bean/FileFoder.hbm.xml</value>
                 <value>bean/Department.hbm.xml</value>
                 <value>bean/Job.hbm.xml</value>
+                <value>bean/Writer.hbm.xml</value>
+                <value>bean/MonthlyProgress.hbm.xml</value>
+                <value>bean/SubsidizeSchool.hbm.xml</value>
+                <value>bean/Application.hbm.xml</value>
+                <value>bean/Photo.hbm.xml</value>
+                <value>bean/Subsidize.hbm.xml</value>
+                <value>bean/Students.hbm.xml</value>
+                <value>bean/UploadFile.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -67,11 +75,9 @@
     <!--启用AspectJ对Annotation的支持-->
     <aop:aspectj-autoproxy/>
     <!--<bean id="AddCheck" class="aop.spring.AddCheck" />-->
-    <bean id="AddCheck" class="aop.spring.AddCheck"/>
-    <bean id="SqlCheck" class="aop.spring.sqlcheck"/>
-    <bean id="UpdateCheck" class="aop.spring.UpdateCheck"/>
-    <bean id="DeleteCheck" class="aop.spring.DeleteCheck"/>
-    <bean id="UserService" class="serviceimpl.UserServiceBean"/>
+
+
+    <bean id="UserService" class="serviceimpl.UserServiceBean" />
     <bean id="PowerService" class="serviceimpl.PowerServiceBean" />
     <bean id="RoleService" class="serviceimpl.RoleServiceBean" />
     <bean id="RoleTypeService" class="serviceimpl.RoleTypeServiceBean" />
@@ -79,5 +85,12 @@
     <bean id="UserFileService" class="serviceimpl.UserFileServiceBean" />
     <bean id="DepartmentService" class="serviceimpl.DepartmentServiceBean" />
     <bean id="JobService" class="serviceimpl.JobServiceBean" />
-
+    <bean id="WriterService" class="serviceimpl.WriterServiceBean" />
+    <bean id="MonthlyProgressService" class="serviceimpl.MonthlyProgressServiceBean" />
+    <bean id="SubsidizeSchoolService" class="serviceimpl.SubsidizeSchoolServiceBean" />
+    <bean id="AppilcationService" class="serviceimpl.AppilcationServiceBean" />
+    <bean id="PhotoService" class="serviceimpl.PhotoServiceBean" />
+    <bean id="SubsidizeService" class="serviceimpl.SubsidizeServiceBean" />
+    <bean id="StudentsService" class="serviceimpl.StudentsServiceBean" />
+    <bean id="UploadFileService" class="serviceimpl.UploadFileServiceBean" />
 </beans>
