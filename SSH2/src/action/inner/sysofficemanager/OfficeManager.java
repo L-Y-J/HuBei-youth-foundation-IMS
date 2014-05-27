@@ -144,6 +144,8 @@ public class OfficeManager extends ActionSupport implements ServletRequestAware,
 		userFile.setDate(new Date());
 		userFile.setIsRead(0);
 		userFile.setContent(this.context);
+		userFile.setReceiveDelete(0);
+		userFile.setSendDelete(0);
 		userFile.setFileFrom(sendUser.getId());
 		userFile.getFileTo().add(receiveUSer);
 
@@ -159,12 +161,13 @@ public class OfficeManager extends ActionSupport implements ServletRequestAware,
 			if(!file.exists())
 				file.mkdirs();
 			try {
-				FileUtils.copyFile(uploadImage, new File(file, uploadImageFileName));
+				FileUtils.copyFile(uploadImage, new File(file, upload.getId().toString()));
 			} catch (IOException e) {
 				e.printStackTrace();
 				return "errorinfo";
 			}
 		}
+		userFileService.addUserFile(userFile);
 		userFileService.updateUserFile(userFile);
 		return "officemanager";
 	}
@@ -175,10 +178,14 @@ public class OfficeManager extends ActionSupport implements ServletRequestAware,
 	public String UserReciveFile(){
 		response.setContentType("json/javascript;charset=utf-8");
 
-		ActionContext context = ServletActionContext.getContext();
-		String userName	= (String) context.getSession().get("userName");
-		if (userName==null)
+		String userName	= null;
+		try {
+			ActionContext context = ServletActionContext.getContext();
+			userName = (String) context.getSession().get("userName");
+		} catch (Exception e) {
+			e.printStackTrace();
 			return "login";
+		}
 
 		JSONArray jsonArray = new JSONArray();
 		User user = userService.queryUserByName(userName);
@@ -187,10 +194,15 @@ public class OfficeManager extends ActionSupport implements ServletRequestAware,
 			Set reciveFile = user.getReciveFile();
 			for (Object o : reciveFile){
 				UserFile file = (UserFile) o;
+				if (file.getReceiveDelete()>0)
+					continue;
 				HashMap<String,String> map = new HashMap<String, String>();
 				map.put("haoma",file.getFileId().toString());
 				map.put("zhuangtai",file.getIsRead().toString());
-				map.put("fujian","0");
+				String fujian="0";
+				if (file.getUploadFileId()!=null)
+					fujian="1";
+				map.put("fujian",fujian);
 				String name = userService.getUser(file.getFileFrom()).getUserName();
 				map.put("fajianren",name);
 				map.put("zhuti",file.getUserFileName());
@@ -214,10 +226,14 @@ public class OfficeManager extends ActionSupport implements ServletRequestAware,
 	public String UserSendFile(){
 		response.setContentType("json/javascript;charset=utf-8");
 
-		ActionContext context = ServletActionContext.getContext();
-		String userName	= (String) context.getSession().get("userName");
-		if (userName==null)
+		String userName	= null;
+		try {
+			ActionContext context = ServletActionContext.getContext();
+			userName = (String) context.getSession().get("userName");
+		} catch (Exception e) {
+			e.printStackTrace();
 			return "login";
+		}
 
 		JSONArray jsonArray = new JSONArray();
 		List users = userService.getUsers();
@@ -233,10 +249,15 @@ public class OfficeManager extends ActionSupport implements ServletRequestAware,
 			Set sendFile = user.getSendFile();
 			for (Object o : sendFile){
 				UserFile file = (UserFile) o;
+				if (file.getSendDelete()>0)
+					continue;
 				HashMap<String,String> map = new HashMap<String, String>();
 				map.put("haoma",file.getFileId().toString());
 				map.put("zhuangtai",file.getIsRead().toString());
-				map.put("fujian","0");
+				String fujian="0";
+				if (file.getUploadFileId()!=null)
+					fujian="1";
+				map.put("fujian",fujian);
 				String name = userService.getUser(file.getFileFrom()).getUserName();
 				map.put("fajianren",name);
 				map.put("zhuti",file.getUserFileName());
@@ -252,20 +273,6 @@ public class OfficeManager extends ActionSupport implements ServletRequestAware,
 			e.printStackTrace();
 		}
 
-		return null;
-	}
-
-
-	/**
-	 * 删除接收的文件
-	 */
-	public String DelReceiveFile(){
-		response.setContentType("json/javascript;charset=utf-8");
-
-		ActionContext context = ServletActionContext.getContext();
-		String userName	= (String) context.getSession().get("userName");
-		if (userName==null)
-			return "login";
 		return null;
 	}
 

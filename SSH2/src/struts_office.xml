@@ -21,4 +21,18 @@
         </action>
     </package>
 
+
+    <package name="deleteoffice" extends="struts-default">
+        <action name="file_delete_find" class="action.inner.sysofficemanager.DeleteOfficeFile" method="UserDeleteFile">
+            <result name="login" type="redirect">/login.html</result>
+        </action>
+        <action name="delete_receive" class="action.inner.sysofficemanager.DeleteOfficeFile" method="DelReceiveFile">
+        </action>
+        <action name="delete_send" class="action.inner.sysofficemanager.DeleteOfficeFile" method="DelSendFile">
+        </action>
+        <action name="delete_rubbish" class="action.inner.sysofficemanager.DeleteOfficeFile" method="DelRubbishFile">
+            <result name="login" type="redirect">/login.html</result>
+        </action>
+    </package>
+
 </struts>

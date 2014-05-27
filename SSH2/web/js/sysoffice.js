@@ -113,14 +113,13 @@ function jh_fajian() {
                 if (i % 2 == 0)
                     var tr = $("<tr ></tr>");
                 var td1 = $("<td onclick='sj_duxin(this)'>" + json[i].haoma + "</td>");
-                if (json[i].zhuangtai == 0) {
+                /*if (json[i].zhuangtai == 0) {
                     var td2 = $("<td onclick='sj_duxin(this)'><img src=\"img/weidu.jpg\" ></td>");
 
                 }
-
-
                 if (json[i].zhuangtai == 1)
-                    var td2 = $("<td onclick='sj_duxin(this)'><img src=\"img/yidu.jpg\" ></td>");
+                    var td2 = $("<td onclick='sj_duxin(this)'><img src=\"img/yidu.jpg\" ></td>");*/
+                var td2 = $("<td onclick='sj_duxin(this)'><img src=\"img/yidu.jpg\" ></td>");
                 if (json[i].fujian == 1)
                     var td3 = $("<td onclick='sj_duxin(this)'><img src=\"img/fujian.jpg\" ></td>");
                 if (json[i].fujian == 0)
@@ -143,29 +142,28 @@ function jh_fajian() {
 //删除箱交互
 function jh_shanchu() {
     $.ajax({
-        url: 'office_shanchu.do',
+        url: 'file_delete_find.do',
         type: 'POST',
-        data: {'test': ''},
+        data: {},
         dataType: 'text',
         success: function (data) {
             //alert(data);
             var _shouxin = $("#_shanchu");
+            _shouxin.children().remove();
             var json = $.parseJSON(data);
-
             for (var i = 0; i < json.length; i++) {
                 if (i % 2 == 1)
                     var tr = $("<tr class='active'></tr>");
                 if (i % 2 == 0)
                     var tr = $("<tr ></tr>");
                 var td1 = $("<td onclick='sj_duxin(this)'>" + json[i].haoma + "</td>");
-                if (json[i].zhuangtai == 0) {
+               /* if (json[i].zhuangtai == 0) {
                     var td2 = $("<td onclick='sj_duxin(this)'><img src=\"img/weidu.jpg\" ></td>");
 
                 }
-
-
                 if (json[i].zhuangtai == 1)
-                    var td2 = $("<td onclick='sj_duxin(this)'><img src=\"img/yidu.jpg\" ></td>");
+                    var td2 = $("<td onclick='sj_duxin(this)'><img src=\"img/yidu.jpg\" ></td>");*/
+                var td2 = $("<td onclick='sj_duxin(this)'><img src=\"img/yidu.jpg\" ></td>");
                 if (json[i].fujian == 1)
                     var td3 = $("<td onclick='sj_duxin(this)'><img src=\"img/fujian.jpg\" ></td>");
                 if (json[i].fujian == 0)
@@ -180,7 +178,7 @@ function jh_shanchu() {
                 _shouxin.append(tr);
             }
             var sp = $("#tag2");
-            sp.append(json.length);
+            sp.html(json.length);
         }
     });
 }
@@ -229,8 +227,6 @@ function fasong() {
 
 function shanchu() {
 
-//    jh_shanchu();
-    alert("读取删除");
     $("#fasong").hide();
     $("#shanchu").show();
     $("#xiexin").hide();
@@ -240,6 +236,7 @@ function shanchu() {
     $("#til_shouxinxiang").hide();
     $("#til_lajixiang").show();
     $("#neirong").hide();
+    jh_shanchu();
 }
 
 
@@ -318,7 +315,7 @@ function selectAllDels2() {
 function delxuanzhong() {
 
     var receive = [];
-    var sned = [];
+    var send = [];
     var rubbish = [];
     var tab = document.getElementById("shouxin");
     for (var i = tab.rows.length - 1; i > 0; i--) {
@@ -332,7 +329,7 @@ function delxuanzhong() {
     for (var i = tab.rows.length - 1; i > 0; i--) {
         if (tab.rows[i].cells[6].getElementsByTagName('input')[0].checked) {
             var num = tab.rows[i].cells[0].innerHTML;
-            sned.push(num);
+            send.push(num);
             tab.deleteRow(i);
         }
     }
@@ -346,8 +343,34 @@ function delxuanzhong() {
     }
 
     //删除收件箱
+    if (receive.length>0){
+        $.ajax({
+            url:'delete_receive.do',
+            type:'POST',
+            data:{'deleteReceiveId':receive.join("|")},
+            dataType:'text'
+        });
+    }
+
     //删除发件箱
-    //删除草稿箱
+    if (send.length>0){
+        $.ajax({
+            url:'delete_send.do',
+            type:'POST',
+            data:{'deleteSendId':sned.join("|")},
+            dataType:'text'
+        });
+    }
+
+    //删除垃圾箱
+    if (rubbish.length>0){
+        $.ajax({
+            url:'delete_rubbish.do',
+            type:'POST',
+            data:{'deleteRubbishId':rubbish.join("|")},
+            dataType:'text'
+        });
+    }
 }
 
 
@@ -446,18 +469,6 @@ function CurentTime() {
     if (mm < 10) clock += '0';
     clock += mm;
     return(clock);
-}
-function xx_fasong() {
-
-    var fajianren = $("#xx_fajianren").val();
-    var shoujianren = $("#xx_shoujianren").val();
-    var zhuti = $("#xx_zhuti").val();
-    var neirong = $("#xx_neirong").val();
-    var shijian = CurentTime();
-    alert(shijian);
-    //alert(fajianren+shoujianren+zhuti+neirong+shijian);
-    $("#xx_fasong").calculator();
-
 }
 
 

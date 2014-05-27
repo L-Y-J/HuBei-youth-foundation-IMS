@@ -7,6 +7,52 @@
     </database-info>
     <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
     <schema name="SCOTT" catalog=""/>
+    <table name="APPLICATION" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="STATE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="APPROVEFROMDEPARTMENT" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="PROVINCEOPTIONS" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="WRITER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="IFMOVE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="WILLHAVEDANGER" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="WILLHAVEINTERNET" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="GOVERNMENTMONEY" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TOTALMONEY" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NEWFACILITY" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="IFMOVE2" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CLASSROOMFOOLD" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CASSROOMSTRUCTURE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CLASSROOMAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CLASSROOMCOST" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="STUDENTDORMITORYFOOLD" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="STUDENTDORMITORYSTRUCTRUE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="STUDENTDORMITORYAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="STUDENTDORMITORYCOST" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TEACHERDORMITORYFOOLD" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TEACHERDORMITORYSTRUCTRUE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TEACHERDORMITORYAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TEACHERDORMITORYCOST" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TOILETSTRUCTRUE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TOILETAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TOILETCOST" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CANTEENSTRUCTURE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CANTEENAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CANTEENCOST" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="OTHER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="COVERS" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="BUILDINGAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="HAVEPLAYGROUND" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="PLAYGROUNDINCLLUDE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SUBSIDIZESCHOOLID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="WRITERID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="APPLICATIONID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="SYS_C0011525" columns="ID"/>
+      <foreign-key name="FKDCF79930C46F6E5D" columns="APPLICATIONID" ref-table="APPLICATION" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FKDCF79930B6980A51" columns="SUBSIDIZESCHOOLID" ref-table="SUBSIDIZESCHOOL" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FKDCF79930DF72FD5F" columns="WRITERID" ref-table="WRITER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="FKDCF79930C46F6E5D" table="APPLICATION" schema="SCOTT" catalog="" columns="APPLICATIONID"/>
+      <exported-key name="FK93E05A3EC46F6E5D" table="TPHOTO" schema="SCOTT" catalog="" columns="APPLICATIONID"/>
+    </table>
     <table name="BONUS" schema="SCOTT" catalog="" type="TABLE">
       <column name="ENAME" sqlType="VARCHAR2" length="10" precision="0" nullable="true" jdbcType="12"/>
       <column name="JOB" sqlType="VARCHAR2" length="9" precision="0" nullable="true" jdbcType="12"/>
@@ -52,6 +98,22 @@
       <column name="DEPARTMENTID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
       <primary-key name="SYS_C0011435" columns="ID"/>
       <foreign-key name="FK11F9D62FCC05D" columns="DEPARTMENTID" ref-table="DEPARTMENT" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="MONTHLYPROGRESS" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="TWRITEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="TSTATE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TCANDONEONTIME" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TDSECRIPTION" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TSIGNATURE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TPHONEAREA" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TPHONE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="WRITERID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="SUBSIDIZESCHOOLID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="SYS_C0011512" columns="ID"/>
+      <foreign-key name="FKD18B911AB6980A51" columns="SUBSIDIZESCHOOLID" ref-table="SUBSIDIZESCHOOL" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FKD18B911ADF72FD5F" columns="WRITERID" ref-table="WRITER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK93E05A3E88A1A07C" table="TPHOTO" schema="SCOTT" catalog="" columns="MONTHLYPROCCESSID"/>
     </table>
     <table name="MYUSER" schema="SCOTT" catalog="" type="TABLE">
       <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
@@ -112,12 +174,162 @@
       <column name="LOSAL" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
       <column name="HISAL" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
     </table>
+    <table name="STUDENTS" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="STUDENTNAME" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SCHOOL" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="STUDENTSTATE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="RECORDDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <primary-key name="SYS_C0011541" columns="ID"/>
+      <exported-key name="FK963549D15BD41ACC" table="SUBSIDIZE_STUDENTS" schema="SCOTT" catalog="" columns="STUDENTID"/>
+    </table>
+    <table name="SUBSIDIZE" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="SUBSIDIZER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SUBSIDIZEPROVINCE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SUBSIDIZEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="SUBSIDIZEMONEY" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="SUBSIDIZEITEM" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SUBSIDIZEDAPARTMENT" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="ISFOREIGN" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="ISNATION" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="ISPERSONAL" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="REMARK" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="STATE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SUBSIDIZERPLACE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="SYS_C0011534" columns="ID"/>
+      <exported-key name="FK41CB9DED4889EEC9" table="SUBSIDIZE_SCHOOL" schema="SCOTT" catalog="" columns="SUBSIDIZEID"/>
+      <exported-key name="FK963549D14889EEC9" table="SUBSIDIZE_STUDENTS" schema="SCOTT" catalog="" columns="SUBSIDIZEID"/>
+    </table>
+    <table name="SUBSIDIZESCHOOL" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="SCHOOLNAME" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="RECORDDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="COMPLETEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="PROVINCE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="QU" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="XIAN" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="XIANG" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CUN" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="LOCALXIANG" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="LOCALCUN" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="ISMERGE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="MERGESCHOOL" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="MERGEVILLAGES" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="MERGEHANLET" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="MERGELOCALXIANG" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="MERGELOCALCUN" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="PRESIDENTNAME1" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="PRESIDENTNAME2" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="HOMEPHONEAREA" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="HOMEPHONE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="OFFICEPHONEAREA" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="OFFICEPHONE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="EMAIL1" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="EMAIL2" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CELLPHONE1" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CELLPHONE2" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="BACKGROUNDINFORMATION" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="NUMOFCLASS" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NUMOFSTUDENT" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="VILLAGESTUDENTFROM" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="AREASTUDENTFROM" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NUMOFSUBSIDIZESTUDENT" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NUMOFTEACHER" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NUMOFOFFICETEACHER" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NUMOFSUBSIDIZETEACHER" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NUMBOARDINGTEACHER" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NUMOFBOARDINGSTUDENT" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="COVERS" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="BUILDINGAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CLASSROOMAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CLASSROOMCOMPLETEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="CLASSROOMTYPE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CLASSROOMDANGER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="STUDENTDORMITORYAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="STUDENTDORMITORYCOMPLETEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="STUDENTDORMITORYTYPE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="STUDENTDORMITORYDANGER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TEACHERDORMITORYAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TEACHERDORMITORYCOMPLETEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="TEACHERDORMITORYTYPE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TEACHERDORMITORYDANGER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CANTEENAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CANTEENCOMPLETEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="CANTEENTYPE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CANTEENDANGER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TOILTAREA" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TOILTCOMPLETEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="TOILTDANGER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TOILTSITUATION" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="OTHER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="HAVEPLAYGROUND" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TEACHEREDUCATIONPASSRATE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TEACHERJOBPASSRATE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="ENROLLMENTOFSTUDENT" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="STUDENTRETENTIONRATE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="STUDENTDROPOUTRATE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="ENROLLMENTRATEOFSTUDENT" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="DESKRATE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="INSTRUMENTRATE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NUMOFBOOKS" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="NUMOFCOMPUTER" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="TYPEOFCOMPUTER" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SPORTSEQUIPMENTSITUATION" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="HAVEINTENT" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="HONOR" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="FUTURENUMOFSTUDENT" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="FUTURENUMOFBOARDINGSTUDENT" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="FUTURENUMOFTEACHER" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="FUTURENUMOFBOARDINGTEACHER" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CHANGEREASON" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="HAVEENGINEERING" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="XIANAVERAGEINCOME" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="XIANGAVERAGEINCOME" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CUNAVERAGEINCOME" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="SYS_C0011509" columns="ID"/>
+      <exported-key name="FKDCF79930B6980A51" table="APPLICATION" schema="SCOTT" catalog="" columns="SUBSIDIZESCHOOLID"/>
+      <exported-key name="FKD18B911AB6980A51" table="MONTHLYPROGRESS" schema="SCOTT" catalog="" columns="SUBSIDIZESCHOOLID"/>
+      <exported-key name="FK41CB9DEDB50F604B" table="SUBSIDIZE_SCHOOL" schema="SCOTT" catalog="" columns="SCHOOLID"/>
+    </table>
+    <table name="SUBSIDIZE_SCHOOL" schema="SCOTT" catalog="" type="TABLE">
+      <column name="SCHOOLID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="SUBSIDIZEID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <primary-key name="SYS_C0011537" columns="SUBSIDIZEID,SCHOOLID"/>
+      <foreign-key name="FK41CB9DED4889EEC9" columns="SUBSIDIZEID" ref-table="SUBSIDIZE" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK41CB9DEDB50F604B" columns="SCHOOLID" ref-table="SUBSIDIZESCHOOL" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="SUBSIDIZE_STUDENTS" schema="SCOTT" catalog="" type="TABLE">
+      <column name="SUBSIDIZEID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="STUDENTID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <primary-key name="SYS_C0011544" columns="STUDENTID,SUBSIDIZEID"/>
+      <foreign-key name="FK963549D15BD41ACC" columns="STUDENTID" ref-table="STUDENTS" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK963549D14889EEC9" columns="SUBSIDIZEID" ref-table="SUBSIDIZE" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="TPHOTO" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="TPHOTONAME" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TINFORMATION" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TPHOTOTYPE" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TNUMBER" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="APPLICATIONID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="MONTHLYPROCCESSID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="SYS_C0011528" columns="ID"/>
+      <foreign-key name="FK93E05A3EC46F6E5D" columns="APPLICATIONID" ref-table="APPLICATION" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK93E05A3E88A1A07C" columns="MONTHLYPROCCESSID" ref-table="MONTHLYPROGRESS" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="UPLOADFILE" schema="SCOTT" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="FILENAME" sqlType="VARCHAR2" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="SYS_C0011661" columns="ID"/>
+    </table>
     <table name="USERFILE" schema="SCOTT" catalog="" type="TABLE">
       <column name="ID" sqlType="NUMBER" length="22" precision="0" nullable="false" jdbcType="3"/>
       <column name="USERFILENAME" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
       <column name="FILEFROM" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
       <column name="FILEDATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
       <column name="ISREAD" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+      <column name="CONTENT" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
       <primary-key name="USERFILE_PK" columns="ID"/>
       <foreign-key name="FK1ECBF3C75BDC428F" columns="FILEFROM" ref-table="MYUSER" ref-schema="SCOTT" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
       <exported-key name="FKFD5CD7EB5BB741C" table="USER_FILETO" schema="SCOTT" catalog="" columns="FILEID"/>
@@ -146,7 +358,10 @@
       <column name="FAX" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
       <column name="EMAIL" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
       <column name="JOBID" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3"/>
+      <column name="FILENAME" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12"/>
       <primary-key name="SYS_C0011443" columns="ID"/>
+      <exported-key name="FKDCF79930DF72FD5F" table="APPLICATION" schema="SCOTT" catalog="" columns="WRITERID"/>
+      <exported-key name="FKD18B911ADF72FD5F" table="MONTHLYPROGRESS" schema="SCOTT" catalog="" columns="WRITERID"/>
     </table>
   </data-source>
 </component>

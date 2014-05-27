@@ -16,6 +16,8 @@ public class UserFile {
 	Integer isRead;
 	String content;
 	Integer uploadFileId;
+	Integer sendDelete;
+	Integer receiveDelete;
 
 	Set fileTo = new HashSet();
 
@@ -84,6 +86,22 @@ public class UserFile {
 
 	public void setUploadFileId(Integer uploadFileId) {
 		this.uploadFileId = uploadFileId;
+	}
+
+	public Integer getSendDelete() {
+		return sendDelete;
+	}
+
+	public void setSendDelete(Integer sendDelete) {
+		this.sendDelete = sendDelete;
+	}
+
+	public Integer getReceiveDelete() {
+		return receiveDelete;
+	}
+
+	public void setReceiveDelete(Integer receiveDelete) {
+		this.receiveDelete = receiveDelete;
 	}
 
 	@Override
