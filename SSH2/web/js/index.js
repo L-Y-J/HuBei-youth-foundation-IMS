@@ -19,6 +19,7 @@ function CheckSeesion(){
 
 
 function SubmitLogin(){
+    $(".spinner").show();
 	var inputName = $("#inputName").val();
 	var inputPassword = $("#inputPassword").val();
 	if (inputName=="" | inputPassword=="")
@@ -36,11 +37,13 @@ function SubmitLogin(){
 				$("#btnLogin").html($("#inputName").val());
 				$("#btnLogin").unbind('click');
 				$("#divLogin").hide();
+                $(".spinner").hide();
             }
 			else{
 				$("#divAlert").attr('class','alert alert-danger');
                 $("#divAlert").children('p').html("<h4>登陆失败，请检查登陆信息是否正确</h4>");
                 $("#divAlert").show();
+                $(".spinner").hide();
 			}
 		}
 	});
@@ -73,6 +76,8 @@ function init(){
         {   position: "absolute",
             top: "100px",left: "500px",right: "400px",bottom: "400px"
         }).hide();
+
+    $(".spinner").hide();
     
     //打开登陆窗口
     $("#btnLogin").live('click',function(){
