@@ -12,5 +12,16 @@
         </action>
         <action name="check_session" class="action.login.LoginManager" method="CheckSession">
         </action>
+        <action name="login_jump" class="action.login.LoginManager" method="LoginJump">
+            <result name="index" type="redirect">/index.html</result>
+            <result name="login" type="redirect">/login.html</result>
+        </action>
+    </package>
+
+    <package name="register" extends="struts-default">
+        <action name="resister_jump" class="action.login.RegisterManager" method="RegisterJump">
+            <result name="index" type="redirect">/index.html</result>
+            <result name="register" type="redirect">/register.html</result>
+        </action>
     </package>
 </struts>

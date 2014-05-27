@@ -26,4 +26,7 @@ public interface UserService {
 
 	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 	List queryNameAndPassword(String userName,String password);
+
+	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
+	User queryUserByName(String name);
 }

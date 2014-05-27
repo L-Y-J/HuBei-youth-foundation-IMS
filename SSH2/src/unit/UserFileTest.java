@@ -31,8 +31,10 @@ public class UserFileTest {
 	public void addUserFileTest(){
 		UserFile userFile = new UserFile();
 		userFile.setUserFileName("测试文件1");
+		userFile.setFileFrom(26);
 		userFile.setDate(new Date());
 		userFile.setIsRead(0);
+		userFile.setContent("test");
 
 		boolean a = userFileService.addUserFile(userFile);
 		System.out.println(a);
@@ -63,7 +65,7 @@ public class UserFileTest {
 
 	@Test
 	public void deleteUserFileTest(){
-		UserFile userFile = userFileService.getUserFile(92);
+		UserFile userFile = userFileService.getUserFile(93);
 		userFileService.deleteUserFile(userFile);
 	}
 

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>办公系统管理</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/cupertino/jquery-ui.css" rel="stylesheet" />
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/sysoffice.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="js/calculator.js" type="text/javascript"></script>
+
+
+    <script>
+            window.onload = init;
+	</script>
+    <script type="text/javascript">
+        $(function(){
+            $.fn.calculator.hide = function(calc) {
+                calc.fadeOut(500);
+            };
+
+            $('#calc').calculator({movable:true,resizable:true, width:175,height:220,defaultOpen:false});
+            $('#showCalc').click(function(){
+                $('#calc').show();
+            })
+        })
+    </script>
+</head>
+
+<body>
+<!--这是排头--> <!------------------------------------------------------------------------------------------------------------------------------->
+<div class="container">
+
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> <a class="navbar-brand" href="/index.html">首页</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">公众信息发布系统<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">系统权限管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">系统模块管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">系统发布管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">内部信息管理系统<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/syspowermanager.html">系统权限管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">系统模块管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="syscodemanager.html">系统编码维护</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="/officemanager.html">办公系统管理</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="#">项目信息管理</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="#">捐款信息管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的空间<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">我的空间</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a id="quiteLogin" href="jump_index.do">退出登陆</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+	</div>
+<!--这是选项卡--> <!------------------------------------------------------------------------------------------------------------------------------->
+    <div class="row clearfix">
+		<div class="col-md-12 column" >
+    <div class="row clearfix" >
+    	<div class="col-md-12 column" style="margin-bottom:20px">
+        	<ul class="nav nav-tabs" style="background:#CFF">
+                <li id="tab1" class="active" onClick="tab1()"><a href="#">读写文件</a></li>
+            </ul>
+        </div>
+    </div>
+		</div>
+	</div>
+   <!--这是读写文件--> <!------------------------------------------------------------------------------------------------------------------------------->
+
+	<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+					<div id="div1" class="list-group">
+						 <a href="#" class="list-group-item " onClick="xiexin()" >写信</a>
+
+
+						<div class="list-group-item" onClick="shouxin()">
+							<span id="tag1" class="badge" style="background:#F93" onClick="shouxin()"></span>收信箱
+						</div>
+                        <div class="list-group-item" onClick="fasong()">
+							已发送
+						</div>
+                        <a  class="list-group-item  "  onClick="shanchu()"><span id="tag2" class="badge"></span>垃圾箱</a>
+					</div>
+
+            <a id="showCalc" href="javascript:void(0)">计算器</a>
+            <div id="calc"></div>
+
+		</div>
+        <h4 id="til_shouxinxiang" >收信箱</h4>
+        <h4 id="til_faxinxiang" >发信箱</h4>
+        <h4 id="til_lajixiang" >垃圾箱</h4>
+
+		<div id="div2" class="col-md-10 column">
+
+
+        <div id="neirong" >
+            <div style="background-color: #33FFCC ; ">
+                <h4 id="nr_zhuti" style="padding: 10px;font-weight:bold">主题:</h4>
+                <p id="nr_fajianren" style="padding-left: 10px">发件人:</p>
+                <p id="nr_shijian" style="padding-left: 10px">时 &nbsp; 间:</p>
+                <p id="nr_shoujianren" style="padding-left: 10px;padding-bottom: 10px">收件人:</p>
+
+            </div>
+
+            <div id="nr_neirong" style="padding: 10px">
+                这是该信件内容
+            </div>
+        </div>
+
+
+			<table class="table" id="shouxin">
+				<thead>
+					<tr>
+						<th style="width:40px">
+							#
+						</th>
+                        <th style="width:50px">
+                        	状态
+                        </th>
+                        <th style="width:50px">
+                        	附件
+                        </th>
+						<th>
+							发件人
+						</th>
+                        <th>
+							主题
+						</th>
+						<th>
+							发件时间
+						</th>
+						<th>
+							<input type="checkbox"   onClick="selectAllDels()"  class="allChecked">全选
+						</th>
+                        <th style="display: none">
+                           内容
+                        </th>
+
+					</tr>
+				</thead>
+				<tbody id="_shouxin">
+
+				</tbody>
+			</table>
+
+            <div id="xiexin" >
+            	 <div class="container">
+					<div class="row clearfix">
+						<div class="col-md-12 column">
+							<form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="file_send_upload.do">
+								<div class="form-group">
+					 			<label  class="col-sm-1 control-label">收件人</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="xx_shoujianren" name="receiveUser" />
+									</div>
+								</div>
+								<div class="form-group">
+					 				<label  class="col-sm-1 control-label">主题</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="xx_zhuti" name="fileName" />
+									</div>
+								</div>
+                                <div class="form-group">
+					 				<label  class="col-sm-1 control-label">内容</label>
+									<!--<input type="" style="width:750px; height:200px" class="form-control" id="xx_neirong"/>-->
+                                    <textarea name="context" id="xx_neirong" style="width: 750px;height: 200px"></textarea>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-1 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputFile" style="float:left">添加附件</label>
+                                            <input style="float:left" id="exampleInputFile" type="file" name="uploadImage" />
+                                        </div>
+										<div class="checkbox">
+							 				<label><input type="checkbox" /> 是否短信告知</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-1 col-sm-6">
+						 				<button type="submit" class="btn btn-default" onclick="xx_fasong()" id="xx_fasong">发送文件</button>
+									</div>
+								</div>
+                            </form>
+							</div>
+						</div>
+					</div>
+            	</div>
+
+
+
+            <table class="table" id="fasong">
+				<thead>
+					<tr>
+						<th style="width:40px">
+							#
+						</th>
+                        <th style="width:50px">
+                        	状态
+                        </th>
+                        <th style="width:50px">
+                        	附件
+                        </th>
+						<th>
+							收件人
+						</th>
+                        <th>
+							主题
+						</th>
+						<th>
+							发件时间
+						</th>
+						<th>
+							<input type="checkbox"   onClick="selectAllDels2()"  id="allChecked2">全选
+						</th>
+					</tr>
+				</thead>
+				<tbody id="_faxin">
+
+				</tbody>
+			</table>
+
+           <table class="table" id="shanchu">
+				<thead>
+					<tr>
+						<th style="width:40px">
+							#
+						</th>
+                        <th style="width:50px">
+                        	状态
+                        </th>
+                        <th style="width:50px">
+                        	附件
+                        </th>
+						<th>
+							发件人
+						</th>
+                        <th>
+							主题
+						</th>
+						<th>
+							发件时间
+						</th>
+						<th>
+							<input type="checkbox"   onClick="selectAllDels1()"  id="allChecked1">全选
+						</th>
+					</tr>
+				</thead>
+				<tbody id="_shanchu">
+
+				</tbody>
+			</table>
+
+            <div id="xuanzhongshanchu" align="right">
+            	<button class="btn-danger"  onClick="delxuanzhong()">删除选中邮件</button>
+            </div>
+
+      </div>
+
+	</div>
+
+</div>
+
+
+
+</div>
+</body>
+</html>

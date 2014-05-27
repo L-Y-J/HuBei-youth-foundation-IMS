@@ -66,42 +66,58 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">Link</a>
-                        </li>
-                        <li>
-                            <a href="#">Link</a>
-                        </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">公众信息发布系统<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">我的空间</a>
-                                </li>
-                                <li>
-                                    <a href="#">Another action</a>
-                                </li>
-                                <li>
-                                    <a href="#">Something else here</a>
+                                    <a href="#">系统权限管理</a>
                                 </li>
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="#">Separated link</a>
+                                    <a href="#">系统模块管理</a>
                                 </li>
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="#">One more separated link</a>
+                                    <a href="#">系统发布管理</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input class="form-control" type="text">
-                        </div> <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">内部信息管理系统<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/jump_inner.do">系统权限管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">系统模块管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="jump_syscode.do">系统编码维护</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="jump_sysoffice.do">办公系统管理</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="#">项目信息管理</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="#">捐款信息管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a id="btnLogin" href="#">登陆/注册</a>
@@ -112,12 +128,6 @@
                                 <li>
                                     <a href="#">我的空间</a>
                                 </li>
-                                <li>
-                                    <a href="#">Another action</a>
-                                </li>
-                                <li>
-                                    <a href="#">Something else here</a>
-                                </li>
                                 <li class="divider">
                                 </li>
                                 <li>
@@ -127,7 +137,6 @@
                         </li>
                     </ul>
                 </div>
-
             </nav>
             <div class="row clearfix">
                 <div class="col-md-2 column">
@@ -150,7 +159,7 @@
                                 内部信息管理系统
                             </h3>
                             <p>
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                管理系统内部的信息，如角色，权限，办公等...
                             </p>
                             <p>
                                 <a class="btn btn-primary" href="jump_inner.do">进入</a>
@@ -166,7 +175,7 @@
                                 公众新闻发布系统
                             </h3>
                             <p>
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                查看新闻，事件，公众消息等...
                             </p>
                             <p>
                                 <a class="btn btn-primary" href="#">进入</a>
@@ -210,7 +219,7 @@
                     <div class="controls">
                         <label class="checkbox"><input type="checkbox" /> Remember me</label>
                         <button id="submitLogin" type="submit" class="btn">登陆</button>　　　
-                        <a class="btn btn-primary" href="#">注册</a>
+                        <a class="btn btn-primary" href="/register.html">注册</a>
                     </div>
                 </div>
             </form>

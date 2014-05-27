@@ -27,5 +27,5 @@
     <include file="struts_login.xml" />
     <include file="struts_power.xml" />
     <include file="struts_code.xml" />
-
+    <include file="struts_office.xml" />
 </struts>

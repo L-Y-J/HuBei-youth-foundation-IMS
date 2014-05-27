@@ -129,15 +129,15 @@ public class UserTest {
 
 	@Test
 	public void UserReciveFileTest(){
-		User user = userService.getUser(27);     //为用户添加接收文件
-		UserFile userFile = userFileService.getUserFile(93);
-//		user.addReciveFile(userFile);
-//		userService.updateUser(user);
-//		userFileService.updateUserFile(userFile);
-
-		user.deleteReciveFile(userFile);         //删除用户接收的文件
+		User user = userService.getUser(26);     //为用户添加接收文件
+		UserFile userFile = userFileService.getUserFile(242);
+		user.addReciveFile(userFile);
 		userService.updateUser(user);
 		userFileService.updateUserFile(userFile);
+
+//		user.deleteReciveFile(userFile);         //删除用户接收的文件
+//		userService.updateUser(user);
+//		userFileService.updateUserFile(userFile);
 	}
 
 	@Test
@@ -148,6 +148,12 @@ public class UserTest {
 			UserFile userFile = (UserFile) o;
 			System.out.println(userFile.getUserFileName());
 		}
+	}
+
+	@Test
+	public void getUserByNameTest(){
+		User user = userService.queryUserByName("LYJ");
+		System.out.println(user.getUserName());
 	}
 
 }

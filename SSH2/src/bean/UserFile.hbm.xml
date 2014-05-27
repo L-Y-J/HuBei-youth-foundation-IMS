@@ -13,7 +13,9 @@
         <property name="fileFrom" column="FILEFROM" type="java.lang.Integer" />
         <property name="date" column="FILEDATE" type="java.util.Date" not-null="true" />
         <property name="isRead" column="ISREAD" type="java.lang.Integer" not-null="true" />
-
+        <property name="content" column="CONTENT" type="java.lang.String" />
+        <!--对应附件的ID-->
+        <property name="uploadFileId" type="java.lang.Integer" />
         <!--对应用户接收的文件-->
         <set name="fileTo" table="USER_FILETO" lazy="false" inverse="false">
             <key column="FILEID" />

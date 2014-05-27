@@ -25,6 +25,14 @@
             <result name="innerpower" type="redirect">/syspowermanager.html</result>
             <!--<interceptor-ref name="jumpstack" />-->
         </action>
+        <action name="jump_syscode" class="action.jump.JumpToInner" method="JumpToSysCode">
+            <result name="syscode" type="redirect">/syscodemanager.html</result>
+        </action>
+        <action name="jump_sysoffice" class="action.jump.JumpToInner" method="JumpToOffice">
+            <result name="office" type="redirect">/officemanager.html</result>
+        </action>
+
+
         <action name="jump_index" class="action.jump.JumpToInner" method="JumpToIndex">
         </action>
     </package>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bean">
+    <class name="bean.UploadFile" table="UPLOADFILE" lazy="false">
+        <cache usage="read-write" region="bean.UploadFile"/>
+        <id name="id" column="ID" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="fileName" type="java.lang.String" not-null="true" />
+    </class>
+</hibernate-mapping>

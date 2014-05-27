@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="officemanager" extends="struts-default">
+        <action name="file_receive" class="action.inner.sysofficemanager.OfficeManager" method="UserReciveFile">
+            <result name="login" type="redirect">/login.html</result>
+        </action>
+        <action name="file_send" class="action.inner.sysofficemanager.OfficeManager" method="UserSendFile">
+            <result name="login" type="redirect">/login.html</result>
+        </action>
+        <action name="file_read" class="action.inner.sysofficemanager.OfficeManager" method="FileIsRead">
+        </action>
+        <action name="file_send_upload" class="action.inner.sysofficemanager.OfficeManager" method="FileSendUpload">
+            <result name="login" type="redirect">/login.html</result>
+            <result name="officemanager" type="redirect">/officemanager.html</result>
+            <result name="errorinfo" type="redirect">/errorinfo.html</result>
+        </action>
+    </package>
+
+</struts>

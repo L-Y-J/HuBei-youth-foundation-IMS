@@ -90,6 +90,19 @@ public class UserServiceBean implements service.UserService {
 		return query.list();
 	}
 
+	@Override
+	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
+	public User queryUserByName(String name) {
+		Query query = null;
+		try {
+			query = sessionFactory.getCurrentSession().createQuery("from User where userName=?");
+			query.setString(0,name);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		return (User)(query.list().get(0));
+	}
+
 }
 
 

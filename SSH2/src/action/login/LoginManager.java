@@ -120,6 +120,21 @@ public class LoginManager extends ActionSupport implements ServletRequestAware,S
 		 }
 		 return null;
 	}
+
+	/**
+	 * 登陆并且跳转
+	 * @return
+	 */
+	public String LoginJump(){
+		List list = userService.queryNameAndPassword(this.userName, this.password);
+		if (list.size()!=0){
+			ActionContext context = ServletActionContext.getContext();
+			Map session = context.getSession();
+			session.put("userName",userName);
+			return "index";
+		}
+		return "login";
+	}
 }
 
 

@@ -1,6 +1,7 @@
 package bean;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -11,9 +12,12 @@ public class UserFile {
 	Integer fileId;
 	String userFileName;
 	Integer fileFrom;
-	Set fileTo;
 	Date date;
 	Integer isRead;
+	String content;
+	Integer uploadFileId;
+
+	Set fileTo = new HashSet();
 
 	public UserFile() {
 	}
@@ -64,6 +68,22 @@ public class UserFile {
 
 	public void setIsRead(Integer isRead) {
 		this.isRead = isRead;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Integer getUploadFileId() {
+		return uploadFileId;
+	}
+
+	public void setUploadFileId(Integer uploadFileId) {
+		this.uploadFileId = uploadFileId;
 	}
 
 	@Override
