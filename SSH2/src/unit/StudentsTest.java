@@ -9,7 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.StudentsService;
 import service.SubsidizeService;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by yongjie on 14-5-22.
@@ -33,6 +35,7 @@ public class StudentsTest {
 	@Test
 	public void addTest(){
 		Students students = new Students();
+		students.setStudentName("测试学生1");
 		studentsService.addStudent(students);
 	}
 
@@ -68,11 +71,29 @@ public class StudentsTest {
 
 	@Test
 	public void Students_Subidize_Test(){
-		Students student = studentsService.getStudent(221);
-//		Subsidize subsidize = subsidizeService.getSubsidize(209);
-//		student.getSubsidize().add(subsidize);
-		student.getSubsidize().clear();
+		Students student = studentsService.getStudent(303);
+		Subsidize subsidize = subsidizeService.getSubsidize(301);
+		student.getSubsidize().add(subsidize);
+//		student.getSubsidize().clear();
 		studentsService.updateStudent(student);
+	}
+
+	@Test
+	public void queryStudentBySchoolTest(){
+		List list = studentsService.queryStudentBySchool("学校1");
+		for (Object o : list){
+			Students s = (Students) o;
+			System.out.println(s.getStudentName());
+		}
+	}
+
+	@Test
+	public void queryStudentsByName(){
+		List list = studentsService.queryStudentByName("测试学生");
+		Set set = new HashSet(list);
+		for (Object o : set){
+			System.out.println(((Students)o).getStudentId());
+		}
 	}
 }
 

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>项目信息管理</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/sysproject.js"></script>
+    <script type="text/javascript" src="iframe/xs_yizizhu.js"></script>
+    <script type="text/javascript" src="iframe/xs_daizizhu.js"></script>
+    <script>
+            window.onload = init;		
+	</script>
+</head>
+
+<body>
+
+
+<!--这是排头--> <!------------------------------------------------------------------------------------------------------------------------------->  
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> <a class="navbar-brand" href="/index.html">首页</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">公众信息发布系统<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">系统权限管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">系统模块管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">系统发布管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">内部信息管理系统<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/syspowermanager.html">系统权限管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">系统模块管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="syscodemanager.html">系统编码维护</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="/officemanager.html">办公系统管理</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="#">项目信息管理</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="#">捐款信息管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的空间<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">我的空间</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a id="quiteLogin" href="jump_index.do">退出登陆</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+<!--这是选项卡--> <!-------------------->
+    <div class="row clearfix">
+		<div class="col-md-12 column" >
+			<div class="row clearfix" >
+    			<div class="col-md-12 column" style="margin-bottom:20px">
+        			<ul class="nav nav-tabs" style="background:#CFF">
+                		<li id="tab1" class="active" onClick="tab1()"><a href="#">资助贫困学生</a></li>
+               			 <li id="tab2" onClick="tab2()"><a href="#">援建希望小学</a></li>
+            		</ul>
+        		</div> 
+    		</div>		
+		</div>
+	</div>
+    
+    
+    
+   <!--这是读写文件--> <!------------------------------------------------------------------------------------------------------------------------------->   
+    
+	<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+            <div id="div1" class="list-group">
+                <a href="#" class="list-group-item " onClick="xs_yizizhu()" >已资助学生信息管理</a>
+                <a  class="list-group-item  "  onClick="xs_daizizhu()">
+                    <span id="tag2" class="badge"></span>
+                    待资助学生信息管理
+                </a>
+            </div>
+                    
+            <div id="_div1" class="list-group">
+                 <a href="#" class="list-group-item " onClick="xx_dengji()" >基本信息登记</a>
+                 <a href="#" class="list-group-item " onClick="xx_chaxun()" >基本信息综合查询</a>
+                 <a href="#" class="list-group-item " onClick="xx_tongji()" >基本信息统计</a>
+                 <a href="#" class="list-group-item " onClick="xx_shenhe()" >项目审核</a>
+                 <a href="#" class="list-group-item " onClick="xx_chakan()" >项目状态查看</a>
+                 <a href="#" class="list-group-item " onClick="xx_shenqingshu()" >项目申请书填报</a>
+                 <a href="#" class="list-group-item " onClick="xx_guihuashu()" >项目规划书填报</a>
+                 <a href="#" class="list-group-item " onClick="xx_jungong()" >项目竣工报告填报</a>
+                 <a href="#" class="list-group-item " onClick="xx_yuebao()" >项目进度月报维护</a>
+                 <a href="#" class="list-group-item " onClick="xx_fuyan()" >复验报告维护</a>
+            </div>
+		</div>
+
+        <div id="div2" class="col-md-10 column">
+        </div>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

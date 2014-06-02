@@ -64,6 +64,8 @@
           <element id="file-copy" path="$PROJECT_DIR$/SSH2/web/WEB-INF/lib/ojdbc5.jar" />
           <element id="library" level="project" name="org.jmock:jmock-junit4:2.0.0" />
           <element id="file-copy" path="$PROJECT_DIR$/SSH2/web/WEB-INF/lib/aspectj-1.8.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/SSH2/web/WEB-INF/lib/commons-io-1.3.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/SSH2/web/WEB-INF/lib/commons-fileupload-1.2.1.jar" />
         </element>
       </element>
     </root>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="projectmanager" extends="struts-default">
+        <action name="find_student" class="action.inner.sysprojectmanager.FindStudents" method="FindStudentBySomeThings">
+        </action>
+        <action name="delete_student" class="action.inner.sysprojectmanager.DeleteStudents" method="DeleteStudents">
+        </action>
+        <action name="add_student" class="action.inner.sysprojectmanager.AddStudents" method="AddSubsidizeStudents">
+        </action>
+        <action name="update_student" class="action.inner.sysprojectmanager.UpdateStudents" method="UpdateSubidizeStudents">
+        </action>
+    </package>
+</struts>

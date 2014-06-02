@@ -22,4 +22,10 @@ public interface StudentsService {
 	boolean updateStudent(Students students);
 
 	boolean deleteStudent(Students students);
+
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	List queryStudentBySchool(String schoolName);
+
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	List queryStudentByName(String studentName);
 }

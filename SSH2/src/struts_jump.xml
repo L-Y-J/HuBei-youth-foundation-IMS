@@ -31,6 +31,9 @@
         <action name="jump_sysoffice" class="action.jump.JumpToInner" method="JumpToOffice">
             <result name="office" type="redirect">/officemanager.html</result>
         </action>
+        <action name="jump_sysproject" class="action.jump.JumpToInner" method="JumpToProject">
+            <result name="project" type="redirect">/projectmanager.html</result>
+        </action>
 
 
         <action name="jump_index" class="action.jump.JumpToInner" method="JumpToIndex">

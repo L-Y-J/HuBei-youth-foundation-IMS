@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+	
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../iframe/xs_yizizhu.js"></script>
+
+   	<style type="text/css">
+		div#nifty{ background: #FF9}
+		p {padding:10px}
+
+		div.rtop, div.rbottom{display:block;background: #FFF}
+		div.rtop div, div.rbottom div{display:block;height: 1px;overflow: hidden; background: #FF9}
+		div.r1{margin: 0 5px}
+		div.r2{margin: 0 3px}
+		div.r3{margin: 0 2px}
+		div.rtop div.r4, div.rbottom div.r4{margin: 0 1px;height: 2px}
+	</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div style="font-size:14px; margin-left:-90px; margin-top:-20px" align="left">
+			<h3 >
+				已资助学生信息管理
+			</h3>
+            <div id="nifty">
+           <div class="rtop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+			<p>请输入要查询的条件（可输入关键字查询）：</p>
+			<form class="form-horizontal" role="form">
+				<div style="margin-bottom:3px">
+					<span>资助时间：</span>
+					
+					<input id="startTime" type="text" style="width:100px;height:20px"/>
+					
+                    <span >至</span>
+					
+					<input id="endTime" type="text" style="width:100px; height:20px"/>
+                    <span  style="color:#F00">*请输入年月，如：2014-01-01</span>
+					
+                    <span style="margin-left:10px">就读学校：</span>
+					
+					<input id="school" type="text" style="height:20px; width: 215px"/>
+					
+				</div>
+				
+                <div style="margin-bottom:3px">
+					 <span>学生编号：</span>
+					<input id="studentNumber" type="text"  style="width:240px; height:20px"/>
+                    <span style="margin-left:190px">姓名：</span>
+					<input id="studentName" type="text" style="width:240px; height:20px"/>
+				</div>
+               <div style="margin-bottom:3px">
+					 <span>捐方名称：</span>
+					<input id="subsidizeName" type="text" style="width:240px; height:20px"/>
+					<button onclick="findStudent()" type="button" style="margin-left:200px; width:80px" class="btn-default">查询</button>
+					
+				</div>
+
+			</form>
+            <div class="rtop">
+                <div class="r4"></div>
+                <div class="r3"></div>
+                <div class="r2"></div>
+                <div class="r1"></div>
+            </div>
+            
+            </div>
+            
+            
+            <table class="table" id="fasong">
+				<thead>
+					<tr>
+						<th >
+							学生编号
+						</th>
+                        <th >
+                        	姓名
+                        </th>
+                        <th >
+                        	就读学校
+                        </th>
+						<th>
+							捐方名称
+						</th>
+                        <th>
+							资助时间
+						</th>
+						
+                        <th>
+							联系方式
+						</th>
+						<th>
+							<input type="checkbox" id="allChecked" onclick="allChecked()">全选
+						</th>
+					</tr>
+				</thead>
+				<tbody id="_faxin">
+
+				</tbody>
+			</table>
+            <div align="right">
+            	<button style="width:80px; height:30px" onclick="addStudent()" class="btn-default">新增</button>
+                <button style="width:80px; height:30px" onclick="deleteStudent()" class="btn-default">删除</button>
+                <button style="width:80px; height:30px" onclick="editStudent()" class="btn-default">编辑</button>
+            </div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

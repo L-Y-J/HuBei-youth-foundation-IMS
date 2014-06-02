@@ -14,6 +14,7 @@ public class Students {
 	String school;
 	Integer studentState;
 	Date recordDate;
+	String connectStudent;
 
 	Set subsidize = new HashSet();
 
@@ -66,6 +67,14 @@ public class Students {
 
 	public void setSubsidize(Set subsidize) {
 		this.subsidize = subsidize;
+	}
+
+	public String getConnectStudent() {
+		return connectStudent;
+	}
+
+	public void setConnectStudent(String connectStudent) {
+		this.connectStudent = connectStudent;
 	}
 
 	@Override

@@ -28,4 +28,5 @@
     <include file="struts_power.xml" />
     <include file="struts_code.xml" />
     <include file="struts_office.xml" />
+    <include file="struts_project.xml" />
 </struts>

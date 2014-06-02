@@ -79,4 +79,32 @@ public class StudentsServiceBean implements StudentsService {
 		}
 		return true;
 	}
+
+	@Override
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	public List queryStudentBySchool(String schoolName) {
+		Query query;
+		try {
+			query = sessionFactory.getCurrentSession().createQuery("from Students where school=?");
+			query.setString(0,schoolName);
+			return query.list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	public List queryStudentByName(String studentName) {
+		Query query;
+		try {
+			query = sessionFactory.getCurrentSession().createQuery("from Students where studentName=?");
+			query.setString(0,studentName);
+			return query.list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
