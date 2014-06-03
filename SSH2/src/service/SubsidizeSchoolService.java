@@ -4,6 +4,7 @@ import bean.SubsidizeSchool;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,4 +23,7 @@ public interface SubsidizeSchoolService {
 	boolean updateSubsidizeSchool(SubsidizeSchool school);
 
 	boolean deleteSubsidizeSchool(SubsidizeSchool school);
+
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	List queryByDate(Date start,Date end);
 }

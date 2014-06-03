@@ -46,36 +46,37 @@
    
 				<div style="margin:5px">
 					 <span>申报时间：</span>
-					
-					<input type="text"  style="width:60px;height:18px"/>
+
+                    <input id="startTime" type="text" style="width:100px;height:20px"/>
 					
                     <span >至</span>
-					
-					<input type="text" style="width:60px; height:18px"/>
+
+                    <input id="endTime" type="text" style="width:100px; height:20px"/>
                     <span  style="color:#F00">*请输入年月，如：2014-01</span>
-					
-                    <span style="margin-left:50px">就读学校：</span>
-					
-					<input type="text" style="height:18px"/>
+
+                    <span style="margin-left:10px">就读学校：</span>
+
+                    <input id="school" type="text" style="height:20px; width: 215px"/>
 					
 				</div>
 				
                 <div style="margin:5px">
-					 <span>学生编号：</span>
-					<input type="text"  style="width:140px; height:18px"/>				
-                    <span style="margin-left:200px">姓名：</span>
-					<input type="text" style="width:140px; height:18px"/>
-                    <button class="btn-default" style="margin-left:100px; width:80px">查询</button>				
+					<span>学生编号：</span>
+                    <input id="studentNumber" type="text"  style="width:240px; height:20px"/>
+                    <span style="margin-left:190px">姓名：</span>
+                    <input id="studentName" type="text" style="width:240px; height:20px"/>
+
 				</div>
-               
-				
-				
+                <button class="btn-default" type="button" style="margin-left:500px; width:80px" onclick="findStudent()">查询</button>
 			</form>
-            <div class="rtop"><div class="r4"></div><div class="r3"></div><div class="r2"></div><div class="r1"></div></div>
+            <div class="rtop">
+                <div class="r4"></div>
+                <div class="r3"></div>
+                <div class="r2"></div>
+                <div class="r1"></div>
             </div>
-            
-            
-            
+            </div>
+
             <table class="table" id="fasong">
 				<thead>
 					<tr>
@@ -96,22 +97,19 @@
                         <th>
 							联系方式
 						</th>
-                       
-                       
-                        
 						<th>
-							<input type="checkbox"   onClick="selectAllDels2()"  id="allChecked2">全选
+							<input type="checkbox"   onClick="allChecked()"  id="allChecked2">全选
 						</th>
 					</tr>
 				</thead>
-				<tbody id="_faxin">
+				<tbody id="tbody">
 
 				</tbody>
 			</table>
             <div align="right">
-            	<button style="width:80px; height:30px">新增</button>
-                <button style="width:80px; height:30px">删除</button>
-                <button style="width:80px; height:30px">编辑</button>
+            	<button onclick="addStudent()" class="btn-default" style="width:80px; height:30px">新增</button>
+                <button onclick="deleteStudent()" class="btn-default" style="width:80px; height:30px">删除</button>
+                <button onclick="editStudent()" class="btn-default" style="width:80px; height:30px">编辑</button>
             </div>
 		</div>
 	</div>

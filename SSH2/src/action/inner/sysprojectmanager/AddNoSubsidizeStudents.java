@@ -1,22 +1,22 @@
 package action.inner.sysprojectmanager;
 
 import bean.Students;
-import bean.Subsidize;
 import com.opensymphony.xwork2.ActionSupport;
+import net.sf.json.JSONObject;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import service.StudentsService;
-import service.SubsidizeService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Created by yongjie on 14-6-2.
@@ -24,21 +24,17 @@ import java.util.List;
 
 @Controller
 @Scope("prototype")
-public class UpdateStudents extends ActionSupport implements ServletRequestAware,ServletResponseAware {
+public class AddNoSubsidizeStudents extends ActionSupport implements ServletRequestAware,ServletResponseAware {
 
 	@Resource
 	StudentsService studentsService;
-	@Resource
-	SubsidizeService subsidizeService;
 
 	private HttpServletResponse response;
 	private HttpServletRequest request;
 
-	private String id;
-	private String name;
+	private String studentName;
 	private String school;
-	private String subsidize;
-	private String date;
+	private String studentDate;
 	private String connect;
 
 	@Override
@@ -51,20 +47,12 @@ public class UpdateStudents extends ActionSupport implements ServletRequestAware
 		response = httpServletResponse;
 	}
 
-	public String getId() {
-		return id;
+	public String getStudentName() {
+		return studentName;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 
 	public String getSchool() {
@@ -75,20 +63,12 @@ public class UpdateStudents extends ActionSupport implements ServletRequestAware
 		this.school = school;
 	}
 
-	public String getSubsidize() {
-		return subsidize;
+	public String getStudentDate() {
+		return studentDate;
 	}
 
-	public void setSubsidize(String subsidize) {
-		this.subsidize = subsidize;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
+	public void setStudentDate(String studentDate) {
+		this.studentDate = studentDate;
 	}
 
 	public String getConnect() {
@@ -99,32 +79,35 @@ public class UpdateStudents extends ActionSupport implements ServletRequestAware
 		this.connect = connect;
 	}
 
-	public String UpdateSubidizeStudents(){
-		Students student = studentsService.getStudent(Integer.parseInt(id));
-		if (student==null)
-			return null;
 
-		List list = subsidizeService.queryByName(subsidize);
-		if (list.size()==0)
-			return null;
-		Subsidize s = (Subsidize) list.get(0);
 
-		student.setStudentName(name);
-		student.setSchool(school);
-		student.getSubsidize().clear();
-		student.getSubsidize().add(s);
-		student.setRecordDate(convertDate());
-		student.setConnectStudent(connect);
+	public String AddStudents(){
+		response.setContentType("json/javascript;charset=utf-8");
+		Students students = new Students();
+		students.setStudentName(studentName);
+		students.setSchool(school);
+		students.setRecordDate(convertDate());
+		students.setConnectStudent(connect);
+		boolean a = studentsService.addStudent(students);
+		String tag = "failed";
+		if (a)
+			tag = "success";
 
-		studentsService.updateStudent(student);
-
+		HashMap<String,String> map = new HashMap<String, String>();
+		map.put("state",tag);
+		JSONObject jsonObject = JSONObject.fromObject(map);
+		try {
+			response.getWriter().println(jsonObject);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	private Date convertDate(){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		try {
-			return dateFormat.parse(this.date);
+			return dateFormat.parse(this.studentDate);
 		} catch (ParseException e) {
 			e.printStackTrace();
 			return null;

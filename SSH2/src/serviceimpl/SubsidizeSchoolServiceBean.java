@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import service.SubsidizeSchoolService;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -78,5 +79,20 @@ public class SubsidizeSchoolServiceBean implements SubsidizeSchoolService {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	public List queryByDate(Date start, Date end) {
+		Query query;
+		try {
+			query = sessionFactory.getCurrentSession().createQuery("from SubsidizeSchool where recordDate>=? and recordDate<=?");
+			query.setDate(0,start);
+			query.setDate(1,end);
+			return query.list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

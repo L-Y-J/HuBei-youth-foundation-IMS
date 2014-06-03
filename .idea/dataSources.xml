@@ -4,6 +4,7 @@
     <data-source source="LOCAL" name="Oracle - orcl@localhost" uuid="f51ccb5b-9acf-41aa-9bc9-cc254fac7c7d">
       <driver-ref>oracle</driver-ref>
       <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@//localhost:1521/orcl</jdbc-url>
       <user-name>scott</user-name>

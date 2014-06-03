@@ -4,6 +4,7 @@ import bean.Students;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,4 +29,7 @@ public interface StudentsService {
 
 	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
 	List queryStudentByName(String studentName);
+
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	List queryStudentsByTime(Date startDate,Date endDate);
 }

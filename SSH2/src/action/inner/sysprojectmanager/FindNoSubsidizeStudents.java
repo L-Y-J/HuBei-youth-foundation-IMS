@@ -1,7 +1,6 @@
 package action.inner.sysprojectmanager;
 
 import bean.Students;
-import bean.Subsidize;
 import com.opensymphony.xwork2.ActionSupport;
 import net.sf.json.JSONArray;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -10,7 +9,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import service.StudentsService;
 import service.SubsidizeService;
-import sun.launcher.resources.launcher_it;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -21,12 +19,12 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * Created by yongjie on 14-5-29.
+ * Created by yongjie on 14-6-2.
  */
 
 @Controller
 @Scope("prototype")
-public class FindStudents extends ActionSupport implements ServletRequestAware,ServletResponseAware {
+public class FindNoSubsidizeStudents extends ActionSupport implements ServletRequestAware,ServletResponseAware {
 
 	@Resource
 	SubsidizeService subsidizeService;
@@ -41,16 +39,15 @@ public class FindStudents extends ActionSupport implements ServletRequestAware,S
 	private String school;
 	private String studentNumber;
 	private String studentName;
-	private String subsidizeName;
 
 	@Override
 	public void setServletRequest(HttpServletRequest httpServletRequest) {
-		this.request = httpServletRequest;
+		request = httpServletRequest;
 	}
 
 	@Override
 	public void setServletResponse(HttpServletResponse httpServletResponse) {
-		this.response = httpServletResponse;
+		response = httpServletResponse;
 	}
 
 	public String getStartTime() {
@@ -93,48 +90,32 @@ public class FindStudents extends ActionSupport implements ServletRequestAware,S
 		this.studentName = studentName;
 	}
 
-	public String getSubsidizeName() {
-		return subsidizeName;
-	}
-
-	public void setSubsidizeName(String subsidizeName) {
-		this.subsidizeName = subsidizeName;
-	}
 
 	/**
-	 * 通过时间，学校，学生编号，姓名，资助方名称等查找学生
+	 * 查询未受资助的学生
 	 * @return
 	 */
-	public String FindStudentBySomeThings(){
+	public String FindStudentsNoSubidize(){
 		response.setContentType("json/javascript;charset=utf-8");
-		JSONArray jsonArray = new JSONArray();
-		Set set1=new HashSet(),set2=new HashSet(),set3=new HashSet(),set4=new HashSet(),set5=new HashSet();
-		if (this.startTime!=null && startTime.length()>0 && this.endTime!=null && this.endTime.length()>0)
-			set1 = findStudentsByTime();
-		if (this.school!=null && this.school.length()>0)
-			set2 = findStudentsBySchool();
-		if (this.studentNumber!=null && this.studentNumber.length()>0)
-			set3 = findStudentsByNumber();
-		if (this.subsidizeName!=null && this.subsidizeName.length()>0)
-			set4 = findStudentsBysubsidizeName();
-		if (this.studentName!=null && this.studentName.length()>0)
-			set5 = findStudentsByName();
+
+		Set set1,set2,set3,set4;
+		set1 = getStudentsByTime();
+		set2 = getStudentsBySchool();
+		set3 = getStudentsByNumber();
+		set4 = getStudentsByName();
 
 		getSet(set1,set2);
 		getSet(set1,set3);
 		getSet(set1,set4);
-		getSet(set1,set5);
 
+		JSONArray jsonArray  = new JSONArray();
 		for (Object o : set1){
 			Students s = (Students) o;
 			HashMap<String,String> map = new HashMap<String, String>();
 			map.put("id",s.getStudentId().toString());
 			map.put("name",s.getStudentName());
 			map.put("school",s.getSchool());
-			List l = new ArrayList(s.getSubsidize());
-			Subsidize sub = (Subsidize) l.get(0);
-			map.put("subidizeName",sub.getSubsidizer());
-			map.put("subidizeDate",s.getRecordDate().toString());
+			map.put("date",s.getRecordDate().toString());
 			map.put("connect",s.getConnectStudent());
 			jsonArray.add(map);
 		}
@@ -148,62 +129,70 @@ public class FindStudents extends ActionSupport implements ServletRequestAware,S
 		return null;
 	}
 
-	private Set findStudentsByTime(){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date startDate;
-		Date endDate;
-		try {
-			startDate = dateFormat.parse(this.startTime);
-			endDate = dateFormat.parse(this.endTime);
-		} catch (ParseException e) {
-			e.printStackTrace();
-			return null;
-		}
-		List list = studentsService.queryStudentsByTime(startDate,endDate);
+	private Set getStudentsByTime(){
+		if (startTime.length()==0 || endTime.length()==0)
+			return new HashSet();
+
+		List list = studentsService.queryStudentsByTime(convertDate(startTime), convertDate(endTime));
 		if (list==null)
-			return null;
+			return new HashSet();
 
 		Iterator iterator = list.iterator();
 		while (iterator.hasNext()){
 			Students s = (Students) iterator.next();
-			if (s.getSubsidize().size()==0)
+			if (s.getSubsidize().size()>0)
 				iterator.remove();
 		}
 		return new HashSet(list);
 	}
 
-	private Set findStudentsBySchool(){
-		List list = studentsService.queryStudentBySchool(this.school);
+	private Set getStudentsBySchool(){
+		List list = studentsService.queryStudentBySchool(school);
+		if (list==null)
+			return new HashSet();
+
+		Iterator iterator = list.iterator();
+		while (iterator.hasNext()){
+			Students s = (Students) iterator.next();
+			if (s.getSubsidize().size()>0)
+				iterator.remove();
+		}
 		return new HashSet(list);
 	}
 
-	private Set findStudentsByName(){
-		List list = studentsService.queryStudentByName(this.studentName);
+	private Set getStudentsByNumber(){
+		if (studentNumber.length()==0)
+			return new HashSet();
+		Students student = studentsService.getStudent(Integer.parseInt(studentNumber));
+		if (student==null || student.getSubsidize().size()>0)
+			return new HashSet();
 		Set set = new HashSet();
-		for (Object o : list){
-			Students s = (Students) o;
+		set.add(student);
+		return set;
+	}
+
+	private Set getStudentsByName(){
+		List list = studentsService.queryStudentByName(studentName);
+		if (list==null)
+			return new HashSet();
+
+		Iterator iterator = list.iterator();
+		while (iterator.hasNext()){
+			Students s = (Students) iterator.next();
 			if (s.getSubsidize().size()>0)
-				set.add(s);
+				iterator.remove();
 		}
-		return set;
+		return new HashSet(list);
 	}
 
-	private Set findStudentsByNumber(){
-		Students student = studentsService.getStudent(Integer.parseInt(this.studentNumber));
-		Set set = new HashSet();
-		if (student.getSubsidize().size()>0)
-			set.add(student);
-		return set;
-	}
-
-	private Set findStudentsBysubsidizeName(){
-		List list = subsidizeService.queryByName(this.subsidizeName);
-		Set set = new HashSet();
-		for (Object o : list){
-			Subsidize s = (Subsidize) o;
-			set.addAll(s.getStudents());
+	private Date convertDate(String date){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			return dateFormat.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
 		}
-		return set;
 	}
 
 	private void getSet(Set set1,Set set2){
@@ -214,23 +203,4 @@ public class FindStudents extends ActionSupport implements ServletRequestAware,S
 			set1.retainAll(set2);
 		}
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

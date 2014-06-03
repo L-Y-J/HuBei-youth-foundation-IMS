@@ -9,6 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.AppilcationService;
 import service.SubsidizeSchoolService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,6 +34,7 @@ public class SubsidizeSchoolTest {
 	@Test
 	public void addTest(){
 		SubsidizeSchool school = new SubsidizeSchool();
+		school.setRecordDate(new Date());
 		boolean a = schoolService.addSubsidizeSchool(school);
 		System.out.println(a);
 	}

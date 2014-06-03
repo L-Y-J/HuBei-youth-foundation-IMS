@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import service.StudentsService;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -101,6 +102,21 @@ public class StudentsServiceBean implements StudentsService {
 		try {
 			query = sessionFactory.getCurrentSession().createQuery("from Students where studentName=?");
 			query.setString(0,studentName);
+			return query.list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	public List queryStudentsByTime(Date startDate,Date endDate) {
+		Query query;
+		try {
+			query = sessionFactory.getCurrentSession().createQuery("from Students where recordDate>=? and recordDate<=?");
+			query.setDate(0,startDate);
+			query.setDate(1,endDate);
 			return query.list();
 		} catch (HibernateException e) {
 			e.printStackTrace();
