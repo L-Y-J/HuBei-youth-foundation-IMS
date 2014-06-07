@@ -38,7 +38,27 @@ function findSchool() {
             'subsidizeName': subsidizeName},
         dataType: 'text',
         success: function (data) {
-            alert(data);
+            var tbody = $("#tbody");
+            $(tbody).children().remove();
+
+            var json = $.parseJSON(data);
+            for (var i=0; i<json.length; i++){
+                var tr = $("<tr></tr>");
+                var td1 = $("<td>"+json[i].name+"</td>");
+                var td2 = $("<td>"+json[i].subsidizeName+"</td>");
+                var td3 = $("<td>"+json[i].date+"</td>");
+                var td4 = $("<td>"+json[i].address+"</td>");
+                var td5 = $("<td>"+json[i].mail+"</td>");
+                var td6 = $("<td>"+json[i].presidentName+"</td>");
+                var td7 = $("<td>"+json[i].connect+"</td>");
+                var td8 = $("<td>"+json[i].department+"</td>");
+                var td9 = $("<td>"+json[i].merge+"</td>");
+                $(tr).append(td1).append(td2)
+                    .append(td3).append(td4)
+                    .append(td5).append(td6)
+                    .append(td7).append(td7).append(td9);
+                $(tbody).append(tr);
+            }
         }
     });
 

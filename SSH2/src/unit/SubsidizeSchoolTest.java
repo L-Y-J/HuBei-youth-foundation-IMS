@@ -78,4 +78,12 @@ public class SubsidizeSchoolTest {
 		schoolService.updateSubsidizeSchool(subsidizeSchool);
 	}
 
+	@Test
+	public void queryAreaTest(){
+		List list = schoolService.queryDifferintArea("province");
+		for (Object o : list){
+			System.out.println((String)o);
+		}
+	}
+
 }

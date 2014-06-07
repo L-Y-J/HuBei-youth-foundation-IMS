@@ -1,6 +1,7 @@
 package serviceimpl;
 
 import bean.SubsidizeSchool;
+import com.sun.javafx.binding.StringFormatter;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -95,4 +96,31 @@ public class SubsidizeSchoolServiceBean implements SubsidizeSchoolService {
 			return null;
 		}
 	}
+
+	@Override
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	public List queryDifferintArea(String area) {
+		Query query;
+		try {
+			String sql = String.format("select distinct(%s) from SubsidizeSchool",area);
+			query = sessionFactory.getCurrentSession().createQuery(sql);
+			return query.list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

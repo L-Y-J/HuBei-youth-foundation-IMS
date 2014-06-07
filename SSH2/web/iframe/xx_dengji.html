@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+   <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../iframe/xx_dengji.html"></script>
+   
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div style="font-size:14px; margin-left:-90px; margin-top:-20px" align="center">
+			<h3 >
+				希望小学基本信息登记
+			</h3>
+          
+            <div style=" margin-left:0px;" align="left" id="dengji_1">
+
+				
+					<div style="width:656px; padding:10px; background-color:#3FC; margin-left:100px" align="left">
+						<p style=" font-weight: bold;">填表说明：
+						<p style=" margin:0px; padding:0px;">1、请省级青基会填写希望工程实施以来援建的希望小学资料；如由中国青基会接受捐款、立项资助的希望小学请选择“省级青基会”，如是其他非希望工程授权机构接受捐款援建，但已在省级青基会备案的请选择“在省级青基会备案”。
+						<p style=" margin:0px; padding:0px;">2、填表人需仔细核对希望小学的校名、地址、电话、和校长（联系人）资料。
+						<p style=" margin:0px; padding:0px;">3、捐方如系海外，请填写国家或地区；如系个人，请简略填写其职业等背景资料（如：香港某公司即可）。
+						<p style=" margin:0px; padding:0px;">4、如栏目要求内容无资料填写，应填写“无”或者“不知道”等，请勿空项。
+						<p style=" margin:0px; padding:0px;">5、详细地址请填写省（区、市）、市、县、乡（镇）、村。
+						<p style=" margin:0px; padding:0px; color:#F00">6、若援建机构系其他省、市青基会（如：广东青基会在青海援建），按照接收捐助地填报原则，援建机构所在青基会不在填报，避免重复统计。
+						<p style=" margin:0px; padding:0px;color:#F00">7、数据上报后，各省有1个月期限修改上报数据，之后上报的所有数据将不能更改，如确需修改要书面上报中国青基会，经审核批准后由中国青基会授权省级青基会在规定时间内进行网上修改。
+						</p>
+
+					</div>
+
+				<div style="width:656px; padding:10px; margin-left:100px ;background-color:#FF6;" align="left">
+                	<p style="  font-weight: bold;">编辑说明：</p>
+                    <p >请在编辑前确认“援建机构”和“地区”是否需要更改，如无需更改，请点击确认进入内容页面进行内容修改</p>
+					<form>
+                    <div style="margin:5px">
+						援建机构：
+						<select style="width:160px">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+                    <div style="margin:5px">
+                        
+						地 &nbsp;&nbsp;&nbsp; &nbsp; 区：
+						<select style="width:160px">
+							<option value="wuhan">武汉市</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+						区
+						<select style="width:160px">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="fiat">Fiat</option>
+							<option value="audi">Audi</option>
+						</select>
+						县
+						
+					</div>
+
+					</form>
+                    <div align="center" style="padding-bottom:20px; padding-top:10px">
+                    	<button style="width:80px; height:30px" onclick="dengji_queding()">确定</button>
+               			<button style="width:80px; height:30px; margin-left:50px">返回</button>
+                    </div>
+				</div>
+				
+			</div>
+            
+            
+<div style="width:auto; margin-left:50px; margin-right:50px; margin-bottom:30px; margin-top:30px; padding-left:50px; padding-right:50px; border:solid 2px #CCCCCC;" align="left" id="dengji_2" hidden="hidden">
+	<p style=" font-weight: bold;">填表人信息</p>
+
+	<div style="border: dashed #999999 1px;">
+		<div style="font-size:14px; margin:0px; padding:0px;">
+        	<div  style="margin:3px">
+				填 表 机 构<input   disabled="disabled" value="xxx"  style="width:60px; height:20px"/> 青少年发展基金会
+            </div>
+            <div style="margin:3px">
+				填表人姓名<input    value="xxx" style="width:160px; height:20px"/>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 填表人职<input   value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+				填表人电话<input   value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+				填表人传真<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+				电 子 邮 件<input  type="email"  value="xxx" style="width:160px; height:20px"/>   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  手  机<input   value="xxx" style="width:160px; height:20px"/>
+            </div>
+		</div>
+	</div>
+
+	<p style=" font-weight: bold;">援建小学信息</p>
+	<div style="border: dashed #999999 1px;">
+		<div style="font-size:14px; margin:0px; padding:0px;">
+            <div style="margin:3px">
+		        援建机构<input    value="xxx" style="width:160px; height:20px"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;援建年份<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+		        希望小学校名<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+		        捐方类型<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+		           捐方名称<input    value="xxx" style="width:160px; height:20px"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;竣工时间<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+		        学校详细地址<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+		        邮政编码<input    value="xxx" style="width:160px; height:20px"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;校长姓名<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+		        电子邮件<input    value="xxx" style="width:160px; height:20px"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;手  机<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+		        电  话<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+		        备   注<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+            <div style="margin:3px">
+		        是否发生撤并<input    value="xxx" style="width:160px; height:20px"/>
+            </div>
+		</div>
+	</div>
+
+	<div align="center" style="padding:30px">
+		<button  style="width:70px; height:23px;">打印</button>
+		<button  style="width:70px; height:23px;" onclick="dengji_fanhui()">返回</button>
+	</div>
+
+</div>
+</div>
+
+    </div>
+ </div>
+
+</body>
+</html>

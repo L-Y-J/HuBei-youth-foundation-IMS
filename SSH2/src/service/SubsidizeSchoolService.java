@@ -26,4 +26,28 @@ public interface SubsidizeSchoolService {
 
 	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
 	List queryByDate(Date start,Date end);
+
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	List queryDifferintArea(String area);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

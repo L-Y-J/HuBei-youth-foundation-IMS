@@ -26,5 +26,9 @@
     <package name="school" extends="struts-default">
         <action name="find_school" class="action.inner.sysprojectmanager.FindSchools" method="FindSchools">
         </action>
+        <action name="find_school_area" class="action.inner.sysprojectmanager.FindSchoolsArea" method="FindAllSchoolArea">
+        </action>
+        <action name="find_subsidizeschool_area" class="action.inner.sysprojectmanager.FindSchoolsArea" method="FindSubsidizeSchoolArea">
+        </action>
     </package>
 </struts>
