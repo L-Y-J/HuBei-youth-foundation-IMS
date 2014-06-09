@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sysproject.js"></script>
+    <style type="text/css">
+        div#nifty{ background: #FF9}
+        div#nifty1{ background: #FF9}
+        p {padding:10px}
+
+        div.rtop, div.rbottom{display:block;background: #FFF}
+        div.rtop div, div.rbottom div{display:block;height: 1px;overflow: hidden; background: #FF9}
+        div.r1{margin: 0 5px}
+        div.r2{margin: 0 3px}
+        div.r3{margin: 0 2px}
+        div.rtop div.r4, div.rbottom div.r4{margin: 0 1px;height: 2px}
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button> <a class="navbar-brand" href="/index.html">首页</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">公众信息发布系统<strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">系统权限管理</a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a href="#">系统模块管理</a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a href="jump_outer.do">系统发布管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">内部信息管理系统<strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/jump_inner.do">系统权限管理</a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a href="#">系统模块管理</a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a href="jump_syscode.do">系统编码维护</a>
+                            </li>
+                            <li class="divider">
+                            <li>
+                                <a href="jump_sysoffice.do">办公系统管理</a>
+                            </li>
+                            <li class="divider">
+                            <li>
+                                <a href="jump_sysproject.do">项目信息管理</a>
+                            </li>
+                            <li class="divider">
+                            <li>
+                                <a href="jump_subsidize.do">捐款信息管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="btnLogin" href="#">登陆/注册</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的空间<strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">我的空间</a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a id="quiteLogin" href="#">退出登陆</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <div  align="left">
+            <h3 >
+                捐款数据管理
+            </h3>
+            <div class="col-md-8 column">
+
+            <div id="nifty">
+                <div class="rtop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+
+                <p>请输入要查询的条件（可输入关键字查询）：</p>
+                <form class="form-horizontal" role="form">
+
+                    <div style="margin-bottom:3px;margin-left: 5px">
+                        <span>捐赠时间：</span>
+
+                        <input type="text"  style="width:100px;height:20px"/>
+
+                        <span >至</span>
+
+                        <input type="text" style="width:100px; height:20px"/>
+
+
+                        <span style="margin-left:100px">捐赠号：</span>
+
+                        <input type="text" style="height:20px" />
+
+                    </div>
+
+                    <div style="margin-bottom:3px;margin-left: 5px">
+                        <span>捐方机构名称：</span>
+                        <input type="text"  style="width:240px; height:20px"/>
+
+                    </div>
+                    <div style="margin-bottom:3px;margin-left: 5px">
+                        <span>捐方个人名称：</span>
+                        <input type="text" style="width:240px; height:20px" />
+
+
+                        <button style="margin-left:160px; width:80px">查询</button>
+
+                    </div>
+
+
+                </form>
+
+                <div class="rtop"><div class="r4"></div><div class="r3"></div><div class="r2"></div><div class="r1"></div></div>
+            </div>
+            </div>
+
+
+            <div class="col-md-4 column">
+                <div id="nifty1">
+                    <div class="rtop"><div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div></div>
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group" align="center">
+                            <div style="margin: 10px">文件上传（支持EXCEL表格上传）</div>
+                            <input type="file"  />
+
+                            <div style="margin-top: 20px">
+                                <button style=" width:80px">上传</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                    <div class="rtop"><div class="r4"></div><div class="r3"></div><div class="r2"></div><div class="r1"></div></div>
+            </div>
+            </div>
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th >
+                        捐赠号
+                    </th>
+                    <th >
+                        捐赠时间
+                    </th>
+                    <th >
+                        捐赠金额
+                    </th>
+                    <th>
+                        捐赠机构（个人）
+                    </th>
+
+
+
+                    <th>
+                        <input type="checkbox"   onClick="selectAllDels2()"  id="allChecked2">全选
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="_faxin">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

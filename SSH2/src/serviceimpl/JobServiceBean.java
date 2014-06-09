@@ -78,4 +78,18 @@ public class JobServiceBean implements JobService {
 		}
 		return true;
 	}
+
+	@Override
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	public Job queryJobByName(String name) {
+		Query query;
+		try {
+			query = sessionFactory.getCurrentSession().createQuery("from Job where jobName=?");
+			query.setString(0,name);
+			return (Job)query.list().get(0);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

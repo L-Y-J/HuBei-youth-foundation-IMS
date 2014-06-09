@@ -102,6 +102,31 @@ public class JumpToInner extends ActionSupport {
 		}
 	}
 
+	public String JumpToSubsidize(){
+		ActionContext context = ServletActionContext.getContext();
+		Map session = context.getSession();
+		if (session==null){
+			System.out.println("Session为空");
+			return "index";
+		}
+		else{
+			String userName = (String) session.get("userName");
+			System.out.println(userName);
+			if (userName==null){
+				System.out.println("用户名称为空，需要重新登陆");
+				return "index";
+			}
+			else {
+				System.out.println("用户已经登陆，可以跳转");
+				return "subsidize";
+			}
+		}
+	}
+
+	public String JumpToOuter(){
+		return "outer";
+	}
+
 
 	//跳转到首页
 	public String JumpToIndex(){

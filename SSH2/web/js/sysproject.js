@@ -32,16 +32,6 @@ function xx_jungong(){$("#div2").html("<iframe src='xx_jungong.html' frameborder
 function xx_yuebao(){$("#div2").html("<iframe src='xx_yuebao.html' frameborder=\"0\" border=0 width=\"100%\" height=\"500px\"></iframe>")}
 function xx_fuyan(){$("#div2").html("<iframe src='xx_fuyan.html' frameborder=\"0\" border=0 width=\"100%\" height=\"500px\"></iframe>")}
 
-function dengji_queding(){
-	$("#dengji_1").hide();
-	$("#dengji_2").show();
-}
-
-function dengji_fanhui(){
-	$("#dengji_2").hide();
-	$("#dengji_1").show();
-}
-
 function init(){
     $("#div1").show();
     $("#_div1").hide();

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>信息发布管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+<!--这是排头--> <!------------------------------------------------------------------------------------------------------------------------------->
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button> <a class="navbar-brand" href="/index.html">首页</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">公众信息发布系统<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">系统权限管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">系统模块管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="jump_outer.do">系统发布管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">内部信息管理系统<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/jump_inner.do">系统权限管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">系统模块管理</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="jump_syscode.do">系统编码维护</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="jump_sysoffice.do">办公系统管理</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="jump_sysproject.do">项目信息管理</a>
+                                </li>
+                                <li class="divider">
+                                <li>
+                                    <a href="jump_subsidize.do">捐款信息管理</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a id="btnLogin" href="#">登陆/注册</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的空间<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">我的空间</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a id="quiteLogin" href="#">退出登陆</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!--这是选项卡--> <!------------------------------------------------------------------------------------------------------------------------------->
+    <div class="row clearfix">
+        <div class="col-md-12 column" >
+            <div class="row clearfix" >
+                <div class="col-md-12 column" style="margin-bottom:20px">
+                   <div> <img src="img/news1.jpg" style="height: 60px;float:left"></div>
+                    <div style="float: right ">
+                        <input type="text" ><button>新闻搜索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--这是读写文件--> <!------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-8 column">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                           发布人
+                        </th>
+                        <th>
+                            主题
+                        </th>
+                        <th>
+                            时间
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            TB - Monthly
+                        </td>
+                        <td>
+                            01/04/2012
+                        </td>
+                        <td>
+                            Default
+                        </td>
+                    </tr>
+                    <tr class="active">
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            TB - Monthly
+                        </td>
+                        <td>
+                            01/04/2012
+                        </td>
+                        <td>
+                            Approved
+                        </td>
+                    </tr>
+                    <tr class="success">
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            TB - Monthly
+                        </td>
+                        <td>
+                            02/04/2012
+                        </td>
+                        <td>
+                            Declined
+                        </td>
+                    </tr>
+                    <tr class="warning">
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            TB - Monthly
+                        </td>
+                        <td>
+                            03/04/2012
+                        </td>
+                        <td>
+                            Pending
+                        </td>
+                    </tr>
+                    <tr class="danger">
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            TB - Monthly
+                        </td>
+                        <td>
+                            04/04/2012
+                        </td>
+                        <td>
+                            Call in to confirm
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="div2" class="col-md-4 column">
+                <div style="background-color: #5bc0de;width: 335px;padding-left: 10px">站内公告</div>
+                <div style="width: 335px;height: 280px;border:2px solid springgreen;padding-top: 10px;padding-left: 20px">暂无公告信息</div>
+
+            </div>
+
+
+
+        </div>
+</body>
+</html>

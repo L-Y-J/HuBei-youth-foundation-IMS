@@ -12,7 +12,10 @@
 
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../iframe/xx_dengji.html"></script>
+    <script type="text/javascript" src="../iframe/xx_dengji.js"></script>
+    <script>
+        window.onload = Init;
+    </script>
    
 </head>
 
@@ -25,8 +28,6 @@
 			</h3>
           
             <div style=" margin-left:0px;" align="left" id="dengji_1">
-
-				
 					<div style="width:656px; padding:10px; background-color:#3FC; margin-left:100px" align="left">
 						<p style=" font-weight: bold;">填表说明：
 						<p style=" margin:0px; padding:0px;">1、请省级青基会填写希望工程实施以来援建的希望小学资料；如由中国青基会接受捐款、立项资助的希望小学请选择“省级青基会”，如是其他非希望工程授权机构接受捐款援建，但已在省级青基会备案的请选择“在省级青基会备案”。
@@ -46,28 +47,16 @@
 					<form>
                     <div style="margin:5px">
 						援建机构：
-						<select style="width:160px">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
+						<select style="width:160px" id="select1">
 						</select>
 					</div>
                     <div style="margin:5px">
                         
 						地 &nbsp;&nbsp;&nbsp; &nbsp; 区：
-						<select style="width:160px">
-							<option value="wuhan">武汉市</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
+						<select style="width:160px" id="select2">
 						</select>
 						区
-						<select style="width:160px">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="fiat">Fiat</option>
-							<option value="audi">Audi</option>
+						<select style="width:160px" id="select3">
 						</select>
 						县
 						
@@ -75,8 +64,8 @@
 
 					</form>
                     <div align="center" style="padding-bottom:20px; padding-top:10px">
-                    	<button style="width:80px; height:30px" onclick="dengji_queding()">确定</button>
-               			<button style="width:80px; height:30px; margin-left:50px">返回</button>
+                    	<button class="btn-default" style="width:80px; height:30px" onclick="dengji_queding()">确定</button>
+               			<button class="btn-default" style="width:80px; height:30px; margin-left:50px">返回</button>
                     </div>
 				</div>
 				
@@ -92,16 +81,16 @@
 				填 表 机 构<input   disabled="disabled" value="xxx"  style="width:60px; height:20px"/> 青少年发展基金会
             </div>
             <div style="margin:3px">
-				填表人姓名<input    value="xxx" style="width:160px; height:20px"/>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 填表人职<input   value="xxx" style="width:160px; height:20px"/>
+				填表人姓名<input id="writeName" value="xxx" style="width:160px; height:20px"/>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 填表人职<input id="writeJob" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-				填表人电话<input   value="xxx" style="width:160px; height:20px"/>
+				填表人电话<input id="writePhone" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-				填表人传真<input    value="xxx" style="width:160px; height:20px"/>
+				填表人传真<input id="writeFax" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-				电 子 邮 件<input  type="email"  value="xxx" style="width:160px; height:20px"/>   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  手  机<input   value="xxx" style="width:160px; height:20px"/>
+				电 子 邮 件<input id="writeMail" type="email"  value="xxx" style="width:160px; height:20px"/>   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  手  机<input id="writeCellPhone" value="xxx" style="width:160px; height:20px"/>
             </div>
 		</div>
 	</div>
@@ -110,41 +99,41 @@
 	<div style="border: dashed #999999 1px;">
 		<div style="font-size:14px; margin:0px; padding:0px;">
             <div style="margin:3px">
-		        援建机构<input    value="xxx" style="width:160px; height:20px"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;援建年份<input    value="xxx" style="width:160px; height:20px"/>
+		        援建机构<input id="SubsidizeName" value="xxx" style="width:160px; height:20px"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;援建年份<input id="SubsidizeDate" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-		        希望小学校名<input    value="xxx" style="width:160px; height:20px"/>
+		        希望小学校名<input id="schoolName" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-		        捐方类型<input    value="xxx" style="width:160px; height:20px"/>
+		        捐方类型<input id="subsidizeType" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-		           捐方名称<input    value="xxx" style="width:160px; height:20px"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;竣工时间<input    value="xxx" style="width:160px; height:20px"/>
+		           捐方名称<input id="name" value="xxx" style="width:160px; height:20px"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;竣工时间<input id="schoolCompleteDate" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-		        学校详细地址<input    value="xxx" style="width:160px; height:20px"/>
+		        学校详细地址<input id="schoolArea" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-		        邮政编码<input    value="xxx" style="width:160px; height:20px"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;校长姓名<input    value="xxx" style="width:160px; height:20px"/>
+		        邮政编码<input value="xxx" style="width:160px; height:20px"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;校长姓名<input id="presidentName" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-		        电子邮件<input    value="xxx" style="width:160px; height:20px"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;手  机<input    value="xxx" style="width:160px; height:20px"/>
+		        电子邮件<input id="schoolMail" value="xxx" style="width:160px; height:20px"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;手  机<input id="schoolCellPhone" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-		        电  话<input    value="xxx" style="width:160px; height:20px"/>
+		        电  话<input id="schoolPhone" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-		        备   注<input    value="xxx" style="width:160px; height:20px"/>
+		        备   注<input id="schoolRemrak" value="xxx" style="width:160px; height:20px"/>
             </div>
             <div style="margin:3px">
-		        是否发生撤并<input    value="xxx" style="width:160px; height:20px"/>
+		        是否发生撤并<input id="schoolIsMerge" value="xxx" style="width:160px; height:20px"/>
             </div>
 		</div>
 	</div>
 
 	<div align="center" style="padding:30px">
-		<button  style="width:70px; height:23px;">打印</button>
-		<button  style="width:70px; height:23px;" onclick="dengji_fanhui()">返回</button>
+		<button onclick="SaveLoginSchool()" class="btn-default" style="width:70px; height:23px;">保存</button>
+		<button class="btn-default" style="width:70px; height:23px;" onclick="dengji_fanhui()">返回</button>
 	</div>
 
 </div>

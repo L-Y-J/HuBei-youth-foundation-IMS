@@ -22,4 +22,7 @@ public interface JobService {
 	boolean updateJob(Job job);
 
 	boolean deleteJob(Job job);
+
+	@Transactional(propagation= Propagation.NOT_SUPPORTED,readOnly=true)
+	Job queryJobByName(String name);
 }

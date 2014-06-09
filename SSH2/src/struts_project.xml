@@ -30,5 +30,24 @@
         </action>
         <action name="find_subsidizeschool_area" class="action.inner.sysprojectmanager.FindSchoolsArea" method="FindSubsidizeSchoolArea">
         </action>
+        <action name="find_subsidize" class="action.inner.sysprojectmanager.LoginSchool" method="FindSubsidize">
+        </action>
+        <action name="find_area_qu" class="action.inner.sysprojectmanager.LoginSchool" method="FindAreaQu">
+        </action>
+        <action name="find_area_xian" class="action.inner.sysprojectmanager.LoginSchool" method="FindAreaXian">
+        </action>
+        <action name="save_writer_school" class="action.inner.sysprojectmanager.LoginSchool" method="SaveWriterAndSchoolInfo">
+        </action>
+    </package>
+
+    <package name="books" extends="struts-default">
+        <action name="find_req_books" class="action.inner.sysprojectmanager.FindRequestBooks" method="RequestBooks">
+        </action>
+        <action name="find_school_state" class="action.inner.sysprojectmanager.FindSchoolState" method="SchoolStates">
+        </action>
+        <action name="find_subsidize_state" class="action.inner.sysprojectmanager.FindSubsidizeState" method="SubSidizeState">
+        </action>
+        <action name="find_through_books" class="action.inner.sysprojectmanager.FindThroughBooks" method="ThroughBooks">
+        </action>
     </package>
 </struts>

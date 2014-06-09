@@ -34,6 +34,12 @@
         <action name="jump_sysproject" class="action.jump.JumpToInner" method="JumpToProject">
             <result name="project" type="redirect">/projectmanager.html</result>
         </action>
+        <action name="jump_subsidize" class="action.jump.JumpToInner" method="JumpToSubsidize">
+            <result name="subsidize" type="redirect">/junkuan.html</result>
+        </action>
+        <action name="jump_outer" class="action.jump.JumpToInner" method="JumpToOuter">
+            <result name="outer" type="redirect">/fabu.html</result>
+        </action>
 
 
         <action name="jump_index" class="action.jump.JumpToInner" method="JumpToIndex">

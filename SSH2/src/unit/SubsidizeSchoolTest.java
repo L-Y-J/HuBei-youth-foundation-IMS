@@ -80,7 +80,7 @@ public class SubsidizeSchoolTest {
 
 	@Test
 	public void queryAreaTest(){
-		List list = schoolService.queryDifferintArea("province");
+		List list = schoolService.queryDifferintArea("qu");
 		for (Object o : list){
 			System.out.println((String)o);
 		}
