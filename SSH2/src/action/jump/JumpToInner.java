@@ -127,6 +127,10 @@ public class JumpToInner extends ActionSupport {
 		return "outer";
 	}
 
+	public String JumpToRegister(){
+		return "register";
+	}
+
 
 	//跳转到首页
 	public String JumpToIndex(){

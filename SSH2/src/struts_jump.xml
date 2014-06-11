@@ -40,6 +40,9 @@
         <action name="jump_outer" class="action.jump.JumpToInner" method="JumpToOuter">
             <result name="outer" type="redirect">/fabu.html</result>
         </action>
+        <action name="jump_register" class="action.jump.JumpToInner" method="JumpToRegister">
+            <result name="register" type="redirect">/register.html</result>
+        </action>
 
 
         <action name="jump_index" class="action.jump.JumpToInner" method="JumpToIndex">
