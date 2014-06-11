@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>信息发布管理</title>
+    <title>新闻发布</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -11,6 +11,10 @@
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/fabu.js"></script>
+    <script>
+        window.onload = Init;
+    </script>
 </head>
 
 <body>
@@ -25,8 +29,10 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                    </button> <a class="navbar-brand" href="/index.html">首页</a>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> <a class="navbar-brand" href="jump_index.do">首页</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,7 +61,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">内部信息管理系统<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/jump_inner.do">系统权限管理</a>
+                                    <a href="syspowermanager.html">系统权限管理</a>
                                 </li>
                                 <li class="divider">
                                 </li>
@@ -65,11 +71,11 @@
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="jump_syscode.do">系统编码维护</a>
+                                    <a href="syscodemanager.html">系统编码维护</a>
                                 </li>
                                 <li class="divider">
                                 <li>
-                                    <a href="jump_sysoffice.do">办公系统管理</a>
+                                    <a href="officemanager.html">办公系统管理</a>
                                 </li>
                                 <li class="divider">
                                 <li>
@@ -84,9 +90,6 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a id="btnLogin" href="#">登陆/注册</a>
-                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的空间<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -96,20 +99,22 @@
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a id="quiteLogin" href="#">退出登陆</a>
+                                    <a id="quiteLogin" href="jump_index.do">退出登陆</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
+
             </nav>
         </div>
     </div>
-    <!--这是选项卡--> <!------------------------------------------------------------------------------------------------------------------------------->
+
+
     <div class="row clearfix">
         <div class="col-md-12 column" >
-            <div class="row clearfix" >
-                <div class="col-md-12 column" style="margin-bottom:20px">
+            <div class="row clearfix" style="border-bottom: solid #dcdcdc 2px">
+                <div class="col-md-12 column" style="margin-bottom:20px;">
                    <div> <img src="img/news1.jpg" style="height: 60px;float:left"></div>
                     <div style="float: right ">
                         <input type="text" ><button>新闻搜索</button>
@@ -121,111 +126,42 @@
 
 
 
-    <!--这是读写文件--> <!------------------------------------------------------------------------------------------------------------------------------->
 
-    <div class="container">
-        <div class="row clearfix">
-            <div class="col-md-8 column">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>
-                            #
-                        </th>
-                        <th>
-                           发布人
-                        </th>
-                        <th>
-                            主题
-                        </th>
-                        <th>
-                            时间
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            TB - Monthly
-                        </td>
-                        <td>
-                            01/04/2012
-                        </td>
-                        <td>
-                            Default
-                        </td>
-                    </tr>
-                    <tr class="active">
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            TB - Monthly
-                        </td>
-                        <td>
-                            01/04/2012
-                        </td>
-                        <td>
-                            Approved
-                        </td>
-                    </tr>
-                    <tr class="success">
-                        <td>
-                            2
-                        </td>
-                        <td>
-                            TB - Monthly
-                        </td>
-                        <td>
-                            02/04/2012
-                        </td>
-                        <td>
-                            Declined
-                        </td>
-                    </tr>
-                    <tr class="warning">
-                        <td>
-                            3
-                        </td>
-                        <td>
-                            TB - Monthly
-                        </td>
-                        <td>
-                            03/04/2012
-                        </td>
-                        <td>
-                            Pending
-                        </td>
-                    </tr>
-                    <tr class="danger">
-                        <td>
-                            4
-                        </td>
-                        <td>
-                            TB - Monthly
-                        </td>
-                        <td>
-                            04/04/2012
-                        </td>
-                        <td>
-                            Call in to confirm
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+        <div class="row clearfix" style="margin-top: 30px">
+            <div class="col-md-3 column" style="border: solid 2px #dca7a7;height:450px;overflow-y: auto;overflow-x: hidden">
+                <div style="background-color: #dca7a7;width: 290px;margin-left: -15px;padding-left: 15px;color: indigo;font-size: 16px"><strong>新闻摘要</strong></div>
+                <ul style="margin-left: -20px;font-size: 14px">
+                    <li style="padding-top: 15px">
+                        <a onclick="news1()">省青基会秘书长张奕考察孝感、荆门希望工程项目</a>
+                    </li>
+                    <li style="padding-top: 15px">
+                        <a onclick="news2()">湖北山里娃受邀赴京参加“希望工程青少年足球邀请赛”</a>
+                    </li>
+                    <li style="padding-top: 15px">
+                        <a onclick="news3()">2014年武汉百年职校招生工作会召开</a>
+                    </li>
+                    <li style="padding-top: 15px">
+                        <a onclick="news4()">中国青基会来鄂考察验收希望医院公益项目</a>
+                    </li>
+                    <li style="padding-top: 15px">
+                        <a onclick="news5()">黄冈市青基会召开三届一次理事会议</a>
+                    </li>
+                    <li style="padding-top: 15px">
+                        <a onclick="news6()">TCL集团、中国青基会调研我省希望工程助学项目</a>
+                    </li>
+
+                </ul>
             </div>
+            <div class="col-md-9 column" id="newsDiv">
+                div news
 
-            <div id="div2" class="col-md-4 column">
-                <div style="background-color: #5bc0de;width: 335px;padding-left: 10px">站内公告</div>
-                <div style="width: 335px;height: 280px;border:2px solid springgreen;padding-top: 10px;padding-left: 20px">暂无公告信息</div>
+
+
+
+
 
             </div>
-
-
-
         </div>
+
 </body>
 </html>

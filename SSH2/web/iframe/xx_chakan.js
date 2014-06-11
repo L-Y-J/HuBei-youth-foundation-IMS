@@ -84,6 +84,8 @@ function title4(){
 
 
 function title5(){
+    FindArea($("#select3"),$("#select4"));
+
     $("#chakan_xuexiao").hide();
     $("#chakan_shenqingshu").hide();
     $("#chakan_shenqingshushenhe").hide();
@@ -148,6 +150,8 @@ function title7(){
 
 
 function title8(){
+    FindArea($("#select5"),$("#select6"));
+
     $("#chakan_xuexiao").hide();
     $("#chakan_shenqingshu").hide();
     $("#chakan_shenqingshushenhe").hide();
@@ -308,6 +312,166 @@ function FindPassBooks(){
                 var td3 = $("<td>"+json[i].date+"</td>");
                 tr.append(td1).append(td2).append(td3);
                 tbody3.append(tr);
+            }
+        }
+    });
+}
+
+function FindPlanState(){
+    var start = $("#startTime2").val();
+    var end = $("#endTime2").val();
+    var subsidizeName = $("#subsidizeName2").val();
+
+    if (start.length>0 && check(start)==false){
+        alert("请输入正确的开始时间");
+        return;
+    }
+    if (end.length>0 && check(end)==false){
+        alert("请输入正确的结束时间");
+        return;
+    }
+
+    $.ajax({
+        url:'find_subsidize_state.do',
+        type:'POST',
+        data:{'start':start,'end':end,'subsidizeName':subsidizeName},
+        dataType:'text',
+        success: function(data){
+//            alert(data);
+            var json = $.parseJSON(data);
+            var tbody4 = $("#tbody4");
+            tbody4.children().remove();
+            for (var i = 0; i < json.length; i++) {
+                var tr = $("<tr></tr>");
+                var td1 = $("<td>"+json[i].name+"</td>");
+                var td2 = $("<td>"+json[i].place+"</td>");
+                var td3 = $("<td>"+json[i].schoolName+"</td>");
+                tr.append(td1).append(td2).append(td3);
+                tbody4.append(tr);
+            }
+        }
+    });
+}
+
+function FindPassBooks1(){
+    var qu = $("#select3").val();
+    var xian = $("#select4").val();
+
+    $.ajax({
+        url:'find_through_books.do',
+        type:'POST',
+        data:{'qu':qu,'xian':xian},
+        dataType:'text',
+        success: function(data){
+//            alert(data);
+            var json = $.parseJSON(data);
+            var tbody5 = $("#tbody5");
+            tbody5.children().remove();
+            for (var i = 0; i < json.length; i++) {
+                var tr = $("<tr></tr>");
+                var td1 = $("<td>"+json[i].id+"</td>");
+                var td2 = $("<td>"+json[i].area+"</td>");
+                var td3 = $("<td>"+json[i].date+"</td>");
+                tr.append(td1).append(td2).append(td3);
+                tbody5.append(tr);
+            }
+        }
+    });
+}
+
+function FindProccessBooks(){
+    var start = $("#startTime3").val();
+    var end = $("#endTime3").val();
+    var subsidizeName = $("#subsidizeName3").val();
+
+    if (start.length>0 && check(start)==false){
+        alert("请输入正确的开始时间");
+        return;
+    }
+    if (end.length>0 && check(end)==false){
+        alert("请输入正确的结束时间");
+        return;
+    }
+
+    $.ajax({
+        url:'find_subsidize_state.do',
+        type:'POST',
+        data:{'start':start,'end':end,'subsidizeName':subsidizeName},
+        dataType:'text',
+        success: function(data){
+//            alert(data);
+            var json = $.parseJSON(data);
+            var tbody6 = $("#tbody6");
+            tbody6.children().remove();
+            for (var i = 0; i < json.length; i++) {
+                var tr = $("<tr></tr>");
+                var td1 = $("<td>"+json[i].name+"</td>");
+                var td2 = $("<td>"+json[i].place+"</td>");
+                var td3 = $("<td>"+json[i].schoolName+"</td>");
+                tr.append(td1).append(td2).append(td3);
+                tbody6.append(tr);
+            }
+        }
+    });
+}
+
+function FindCompleteBooks(){
+    var start = $("#startTime4").val();
+    var end = $("#endTime4").val();
+    var subsidizeName = $("#subsidizeName4").val();
+
+    if (start.length>0 && check(start)==false){
+        alert("请输入正确的开始时间");
+        return;
+    }
+    if (end.length>0 && check(end)==false){
+        alert("请输入正确的结束时间");
+        return;
+    }
+
+    $.ajax({
+        url:'find_subsidize_state.do',
+        type:'POST',
+        data:{'start':start,'end':end,'subsidizeName':subsidizeName},
+        dataType:'text',
+        success: function(data){
+//            alert(data);
+            var json = $.parseJSON(data);
+            var tbody7 = $("#tbody7");
+            tbody7.children().remove();
+            for (var i = 0; i < json.length; i++) {
+                var tr = $("<tr></tr>");
+                var td1 = $("<td>"+json[i].name+"</td>");
+                var td2 = $("<td>"+json[i].place+"</td>");
+                var td3 = $("<td>"+json[i].schoolName+"</td>");
+                tr.append(td1).append(td2).append(td3);
+                tbody7.append(tr);
+            }
+        }
+    });
+}
+
+function FindCompletePass(){
+    var qu = $("#select5").val();
+    var xian = $("#select6").val();
+
+    $.ajax({
+        url:'find_through_books.do',
+        type:'POST',
+        data:{'qu':qu,'xian':xian},
+        dataType:'text',
+        success: function(data){
+//            alert(data);
+            var json = $.parseJSON(data);
+            var tbody8 = $("#tbody8");
+            tbody8.children().remove();
+            for (var i = 0; i < json.length; i++) {
+                var tr = $("<tr></tr>");
+                var td1 = $("<td>"+json[i].id+"</td>");
+                var td2 = $("<td>"+json[i].area+"</td>");
+                var td3 = $("<td>"+json[i].date+"</td>");
+                tr.append(td1).append(td2).append(td3);
+                tbody8.append(tr);
             }
         }
     });

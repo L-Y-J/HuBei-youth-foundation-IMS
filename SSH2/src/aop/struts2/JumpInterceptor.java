@@ -26,7 +26,7 @@ public class JumpInterceptor implements Interceptor {
 		ActionContext invocationContext = actionInvocation.getInvocationContext();
 		Map session = (Map) invocationContext.get(ServletActionContext.SESSION);
 		if (session==null){
-			System.out.println("用户还没有登陆");
+			//System.out.println("用户还没有登陆");
 			return "index";
 		}
 		else{
@@ -36,7 +36,7 @@ public class JumpInterceptor implements Interceptor {
 				return "index";
 			}
 			else{
-				System.out.println("用户已经登陆，允许跳转");
+				//System.out.println("用户已经登陆，允许跳转");
 				return actionInvocation.invoke();
 			}
 		}

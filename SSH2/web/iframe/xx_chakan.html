@@ -228,18 +228,18 @@
             <div style="margin-bottom:3px; font-size: 12px;background-color: #FF9">
                 <span>年份：</span>
 
-                <input type="text"  style="width:60px;height:18px"/>
+                <input id="startTime2" type="text"  style="width:60px;height:18px"/>
 
                 <span >至</span>
 
-                <input type="text" style="width:60px; height:18px"/>
+                <input id="endTime2" type="text" style="width:60px; height:18px"/>
                 <span  style="color:#F00">*请输入四位数字，如：2014</span>
 
                 <span style="margin-left:100px">捐赠单位：</span>
 
-                <input type="text" style="height:18px" />
+                <input id="subsidizeName2" type="text" style="height:18px" />
 
-                <button style="margin-left:160px; width:80px">查询</button>
+                <button onclick="FindPlanState()" class="btn-default" style="margin-left:160px; width:80px">查询</button>
 
             </div>
 
@@ -259,7 +259,7 @@
 
                 </tr>
                 </thead>
-                <tbody >
+                <tbody id="tbody4">
 
                 </tbody>
             </table>
@@ -273,27 +273,19 @@
                 <span>请输入要查询的地区：</span>
 
 
-                <select style="width:160px">
-                    <option value="wuhan">武汉市</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
+                <select style="width:160px" id="select3">
                 </select>
                 区
-                <select style="width:160px">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
+                <select style="width:160px" id="select4">
                 </select>
                 县
 
-                <button style="margin-left:160px; width:80px">查询</button>
+                <button onclick="FindPassBooks1()" class="btn-default" style="margin-left:160px; width:80px">查询</button>
 
             </div>
 
 
-            <table class="table" id="">
+            <table class="table">
                 <thead>
                 <tr>
                     <th >
@@ -312,8 +304,7 @@
 
                 </tr>
                 </thead>
-                <tbody >
-
+                <tbody id="tbody5">
                 </tbody>
             </table>
 
@@ -326,18 +317,18 @@
             <div style="margin-bottom:3px; font-size: 12px;background-color: #FF9">
                 <span>年份：</span>
 
-                <input type="text"  style="width:60px;height:18px"/>
+                <input id="startTime3" type="text"  style="width:60px;height:18px"/>
 
                 <span >至</span>
 
-                <input type="text" style="width:60px; height:18px"/>
+                <input id="endTime3" type="text" style="width:60px; height:18px"/>
                 <span  style="color:#F00">*请输入四位数字，如：2014</span>
 
                 <span style="margin-left:100px">捐赠单位：</span>
 
-                <input type="text" style="height:18px" />
+                <input id="subsidizeName3" type="text" style="height:18px" />
 
-                <button style="margin-left:160px; width:80px">查询</button>
+                <button onclick="FindProccessBooks()" class="btn-default" style="margin-left:160px; width:80px">查询</button>
 
             </div>
 
@@ -360,7 +351,7 @@
 
                 </tr>
                 </thead>
-                <tbody >
+                <tbody id="tbody6">
 
                 </tbody>
             </table>
@@ -373,18 +364,18 @@
             <div style="margin-bottom:3px; font-size: 12px;background-color: #FF9">
                 <span>年份：</span>
 
-                <input type="text"  style="width:60px;height:18px"/>
+                <input id="startTime4" type="text"  style="width:60px;height:18px"/>
 
                 <span >至</span>
 
-                <input type="text" style="width:60px; height:18px"/>
+                <input id="endTime4" type="text" style="width:60px; height:18px"/>
                 <span  style="color:#F00">*请输入四位数字，如：2014</span>
 
                 <span style="margin-left:100px">捐赠单位：</span>
 
-                <input type="text" style="height:18px" />
+                <input id="subsidizeName4" type="text" style="height:18px" />
 
-                <button style="margin-left:160px; width:80px">查询</button>
+                <button class="btn-default" onclick="FindCompleteBooks()" style="margin-left:160px; width:80px">查询</button>
 
             </div>
 
@@ -404,7 +395,7 @@
 
                 </tr>
                 </thead>
-                <tbody >
+                <tbody id="tbody7">
 
                 </tbody>
             </table>
@@ -418,27 +409,21 @@
                 <span>请输入要查询的地区：</span>
 
 
-                <select style="width:160px">
-                    <option value="wuhan">武汉市</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
+                <select style="width:160px" id="select5">
+
                 </select>
                 区
-                <select style="width:160px">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
+                <select style="width:160px" id="select6">
+
                 </select>
                 县
 
-                <button style="margin-left:160px; width:80px">查询</button>
+                <button onclick="FindCompletePass()" class="btn-default" style="margin-left:160px; width:80px">查询</button>
 
             </div>
 
 
-            <table class="table" id="">
+            <table class="table">
                 <thead>
                 <tr>
                     <th >
@@ -457,7 +442,7 @@
 
                 </tr>
                 </thead>
-                <tbody >
+                <tbody id="tbody8">
 
                 </tbody>
             </table>
